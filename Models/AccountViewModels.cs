@@ -49,9 +49,9 @@ namespace Fundraising_Capstone.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Email")]
+        [Display(Name = "UserName")]
         [EmailAddress]
-        public string Email { get; set; }
+        public string userName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
