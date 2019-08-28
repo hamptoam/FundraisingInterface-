@@ -7,13 +7,13 @@ namespace Fundraising_Capstone.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class updating : IMigrationMetadata
+    public sealed partial class calleemodel : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(updating));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(calleemodel));
         
         string IMigrationMetadata.Id
         {
-            get { return "201908271921123_updating"; }
+            get { return "201908271956068_calleemodel"; }
         }
         
         string IMigrationMetadata.Source

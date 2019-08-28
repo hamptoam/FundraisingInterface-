@@ -38,8 +38,6 @@ namespace Fundraising_Capstone.Controllers
             return View(Roles);
         }
 
-
-
         public Boolean isAdminUser()
         {
 

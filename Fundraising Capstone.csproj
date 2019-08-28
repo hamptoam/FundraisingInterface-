@@ -46,9 +46,19 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=1.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.IdentityModel.Logging.1.1.2\lib\net451\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=5.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.IdentityModel.Tokens.5.1.2\lib\net451\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=5.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\System.IdentityModel.Tokens.Jwt.5.1.2\lib\net451\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -101,6 +111,15 @@
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Twilio, Version=5.31.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Twilio.5.31.4\lib\net451\Twilio.dll</HintPath>
+    </Reference>
+    <Reference Include="Twilio.AspNet.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Twilio.AspNet.Common.5.20.1\lib\net45\Twilio.AspNet.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Twilio.AspNet.Mvc, Version=5.20.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Twilio.AspNet.Mvc.5.20.1\lib\net451\Twilio.AspNet.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
@@ -179,9 +198,13 @@
     <Compile Include="Migrations\201908271652127_setupmodels.Designer.cs">
       <DependentUpon>201908271652127_setupmodels.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201908271921123_updating.cs" />
-    <Compile Include="Migrations\201908271921123_updating.Designer.cs">
-      <DependentUpon>201908271921123_updating.cs</DependentUpon>
+    <Compile Include="Migrations\201908271956068_calleemodel.cs" />
+    <Compile Include="Migrations\201908271956068_calleemodel.Designer.cs">
+      <DependentUpon>201908271956068_calleemodel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908281218125_calleedetails.cs" />
+    <Compile Include="Migrations\201908281218125_calleedetails.Designer.cs">
+      <DependentUpon>201908281218125_calleedetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -272,8 +295,11 @@
     <EmbeddedResource Include="Migrations\201908271652127_setupmodels.resx">
       <DependentUpon>201908271652127_setupmodels.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908271921123_updating.resx">
-      <DependentUpon>201908271921123_updating.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908271956068_calleemodel.resx">
+      <DependentUpon>201908271956068_calleemodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908281218125_calleedetails.resx">
+      <DependentUpon>201908281218125_calleedetails.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
