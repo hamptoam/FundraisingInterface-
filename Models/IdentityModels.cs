@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Fundraising_Capstone.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -20,10 +21,21 @@ namespace Fundraising_Capstone.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+
+        public DbSet<Callee> Callees  { get; set; }
+
+        public DbSet<Manager> Managers { get; set; }
+
+        public DbSet<Employee> Employees { get; set; }
+
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
+
+
+
 
         public static ApplicationDbContext Create()
         {

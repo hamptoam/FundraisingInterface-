@@ -5,14 +5,11 @@ using System.Web;
 
 namespace Fundraising_Capstone.Models
 {
-    public class Admin
+    public class Manager
     {
 
-        public Admin()
-        {
-            ApplicationDbContext db = new ApplicationDbContext();
-        }
 
+     
 
     }
 }

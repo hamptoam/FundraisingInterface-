@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fundraising_Capstone.Keys;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -21,7 +22,7 @@ namespace Fundraising_Capstone.Controllers
         [HttpPost]
         public void Execute() //string numberToCall
         {
-            TwilioClient.Init(APIKeys.APIKeys.sID, APIKeys.APIKeys.authToken);
+            TwilioClient.Init(APIKeys.sID, APIKeys.authToken);
             //var result = TwilioClient.(Settings.MyTwilioNumber, number, "http://www.televisiontunes.com/uploads/audio/Star%20Wars%20-%20The%20Imperial%20March.mp3");
 
             var call = CallResource.Create(

@@ -243,7 +243,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\PhoneController.cs" />
-    <Compile Include="Keys\APIKeys.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -258,6 +257,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Keys\APIKeys.cs" />
     <Compile Include="Migrations\201908271652127_setupmodels.cs" />
     <Compile Include="Migrations\201908271652127_setupmodels.Designer.cs">
       <DependentUpon>201908271652127_setupmodels.cs</DependentUpon>
@@ -270,9 +270,13 @@
     <Compile Include="Migrations\201908281218125_calleedetails.Designer.cs">
       <DependentUpon>201908281218125_calleedetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908291920078_identityandemployeemodels.cs" />
+    <Compile Include="Migrations\201908291920078_identityandemployeemodels.Designer.cs">
+      <DependentUpon>201908291920078_identityandemployeemodels.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\Manager.cs" />
     <Compile Include="Models\Callee.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -365,6 +369,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908281218125_calleedetails.resx">
       <DependentUpon>201908281218125_calleedetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908291920078_identityandemployeemodels.resx">
+      <DependentUpon>201908291920078_identityandemployeemodels.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
