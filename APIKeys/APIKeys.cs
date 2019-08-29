@@ -22,7 +22,7 @@ namespace Fundraising_Capstone.APIKeys
 
             var call = CallResource.Create(
                 url: new Uri("https://ACad990750b705f73b388ec579ef0a82ba:723839759b7f1707f018d937cb1305c4}@api.twilio.com/2010-04-01/Accounts"),
-                to: new Twilio.Types.PhoneNumber("+2623430620"),
+                to: new Twilio.Types.PhoneNumber(""),
                 from: new Twilio.Types.PhoneNumber("+12026847384")
                 );
 
