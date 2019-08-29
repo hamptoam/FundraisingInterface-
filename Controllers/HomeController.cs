@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Twilio;
 using Twilio.AspNet.Mvc;
+using Twilio.Clients;
 using Twilio.TwiML;
 using TwilioMakeAndRecieveCalls.Controllers;
-
+using Fundraising_Capstone.APIKeys;
+using Twilio.Rest.Api.V2010.Account;
 
 namespace Fundraising_Capstone.Controllers
 {
@@ -14,6 +17,7 @@ namespace Fundraising_Capstone.Controllers
     {
         public ActionResult Index()
         {
+           
             return View();
         }
 
@@ -22,6 +26,18 @@ namespace Fundraising_Capstone.Controllers
             var twiml = new VoiceResponse();
             return TwiML(twiml.Say("You are calling Amelia").Dial(Settings.MyOwnNumber));
         }
+
+
+
+
+        //[HttpPost]
+        //public ActionResult MakeCall(string number)
+        //{
+        //    var client = new TwilioRestClient(Settings.AccountSid, Settings.AuthToken);
+        //   
+
+        //    
+        //}
 
 
         public ActionResult About()

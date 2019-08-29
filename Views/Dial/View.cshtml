@@ -1,0 +1,17 @@
+﻿@model Fundraising_Capstone.Models.Employee
+
+@{
+    ViewBag.Title = "View";
+}
+
+<h2>View</h2>
+
+<body>
+    @using (Html.BeginForm("Execute", "Home", FormMethod.Post))
+    {
+        <div>
+            Enter a number: @Html.TextBox("number")
+            <button type="submit"> Make Call</button>
+        </div>
+    }
+</body>

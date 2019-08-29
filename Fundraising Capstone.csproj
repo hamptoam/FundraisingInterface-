@@ -242,7 +242,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="APIKeys\APIKeys.cs" />
+    <Compile Include="Controllers\PhoneController.cs" />
+    <Compile Include="Keys\APIKeys.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -337,6 +338,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\usercontroller\Index.cshtml" />
     <Content Include="Views\Role\AddRole.cshtml" />
+    <Content Include="Views\Dial\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
