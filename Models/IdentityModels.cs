@@ -28,14 +28,13 @@ namespace Fundraising_Capstone.Models
 
         public DbSet<Employee> Employees { get; set; }
 
+        public DbSet<Campaign> Campaigns { get; set; }
+
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
-
-
-
 
         public static ApplicationDbContext Create()
         {

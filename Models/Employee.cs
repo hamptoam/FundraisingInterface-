@@ -34,5 +34,7 @@ namespace Fundraising_Capstone.Models
 
         public Decimal yearlyFunds { get; set; }
 
+
+        //add more as they come up 
     }
 }

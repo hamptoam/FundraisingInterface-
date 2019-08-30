@@ -274,8 +274,13 @@
     <Compile Include="Migrations\201908291920078_identityandemployeemodels.Designer.cs">
       <DependentUpon>201908291920078_identityandemployeemodels.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908300202063_updatedmodels.cs" />
+    <Compile Include="Migrations\201908300202063_updatedmodels.Designer.cs">
+      <DependentUpon>201908300202063_updatedmodels.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Campaign.cs" />
     <Compile Include="Models\Manager.cs" />
     <Compile Include="Models\Callee.cs" />
     <Compile Include="Models\Employee.cs" />
@@ -372,6 +377,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908291920078_identityandemployeemodels.resx">
       <DependentUpon>201908291920078_identityandemployeemodels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908300202063_updatedmodels.resx">
+      <DependentUpon>201908300202063_updatedmodels.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
