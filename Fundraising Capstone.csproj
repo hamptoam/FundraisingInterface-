@@ -253,6 +253,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\Settings.cs" />
+    <Compile Include="Controllers\TokenController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -277,6 +278,10 @@
     <Compile Include="Migrations\201908300202063_updatedmodels.cs" />
     <Compile Include="Migrations\201908300202063_updatedmodels.Designer.cs">
       <DependentUpon>201908300202063_updatedmodels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908301316404_updatedmodels2.cs" />
+    <Compile Include="Migrations\201908301316404_updatedmodels2.Designer.cs">
+      <DependentUpon>201908301316404_updatedmodels2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -348,6 +353,8 @@
     <Content Include="Views\usercontroller\Index.cshtml" />
     <Content Include="Views\Role\AddRole.cshtml" />
     <Content Include="Views\Dial\View.cshtml" />
+    <Content Include="Views\Shared\_EmployeeLayout.cshtml" />
+    <Content Include="Views\Shared\_ManagerLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -380,6 +387,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908300202063_updatedmodels.resx">
       <DependentUpon>201908300202063_updatedmodels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908301316404_updatedmodels2.resx">
+      <DependentUpon>201908301316404_updatedmodels2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

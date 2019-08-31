@@ -7,6 +7,8 @@ using System.Web.Mvc;
 using Twilio;
 using Twilio.AspNet.Mvc;
 using Twilio.Rest.Api.V2010.Account;
+using Twilio.TwiML;
+using Twilio.TwiML.Voice;
 
 namespace Fundraising_Capstone.Controllers
 {
@@ -15,24 +17,37 @@ namespace Fundraising_Capstone.Controllers
 
         public ActionResult Index()
         {
+            var response = new VoiceResponse();
+            response.Say("Thanks for calling!");
+
             Execute();
-            return View(); 
+            return Content(response.ToString(), "text/xml"); 
         }
 
         [HttpPost]
         public void Execute() //string numberToCall
         {
             TwilioClient.Init(APIKeys.sID, APIKeys.authToken);
-            //var result = TwilioClient.(Settings.MyTwilioNumber, number, "http://www.televisiontunes.com/uploads/audio/Star%20Wars%20-%20The%20Imperial%20March.mp3");
-
             var call = CallResource.Create(
                 url: new Uri("https://ACad990750b705f73b388ec579ef0a82ba:723839759b7f1707f018d937cb1305c4}@api.twilio.com/2010-04-01/Accounts"),
-                to: new Twilio.Types.PhoneNumber(""),
+                to: new Twilio.Types.PhoneNumber("14146990466"),
                 from: new Twilio.Types.PhoneNumber("+12026847384")
                 );
 
                 Console.WriteLine(call.Sid);
         }
+
+        //public void Conference()
+        //{
+        //    var response = new VoiceResponse();
+        //    var dial = new Dial();
+        //    dial.Conference("miderated-conference-room",
+        //        startConferenceOnEnter: false);
+        //    response.Append(dial);
+
+
+        //    Console.WriteLine(response.ToString());
+        //}
 
         //    {
         //        return Content(result.RestException.Message);
