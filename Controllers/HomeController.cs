@@ -17,7 +17,6 @@ namespace Fundraising_Capstone.Controllers
     {
         public ActionResult Index()
         {
-           
             return View();
         }
 
