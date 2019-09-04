@@ -30,9 +30,58 @@ namespace Fundraising_Capstone.Controllers
             SignInManager = signInManager;
         }
 
-       
+        [Authorize]
+        // GET: usercontroller
+        public ActionResult Index()
+        {
 
-        public ApplicationSignInManager SignInManager
+            if (User.Identity.IsAuthenticated)
+            {
+                var user = User.Identity;
+                ViewBag.Name = user.Name;
+
+                ViewBag.displayMenu = "No";
+
+                if (isAdminUser())
+                {
+                    ViewBag.displayMenu = "Yes";
+                }
+
+                return View();
+            }
+            else
+            {
+                ViewBag.Name = "Not Logged In";
+            }
+            return View();
+
+
+
+        }
+        public Boolean isAdminUser()
+        {
+
+            if (User.Identity.IsAuthenticated)
+            {
+                var user = User.Identity;
+                ApplicationDbContext context = new ApplicationDbContext();
+                var UserManager = new UserManager<ApplicationUser>(new Microsoft.AspNet.Identity.EntityFramework.UserStore<ApplicationUser>
+                (context));
+                var s = UserManager.GetRoles(user.GetUserId());
+                if (s[0].ToString() == "Admin")
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return false;
+        }
+    
+
+    public ApplicationSignInManager SignInManager
         {
             get
             {
@@ -83,7 +132,7 @@ namespace Fundraising_Capstone.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    return RedirectToAction("Index", "Home");
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -157,7 +206,7 @@ namespace Fundraising_Capstone.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.userName, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -173,6 +222,11 @@ namespace Fundraising_Capstone.Controllers
                 }
                 ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin"))
                                         .ToList(), "Name", "Name");
+                ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Employee"))
+                                        .ToList(), "Name", "Name");
+                ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Manager"))
+                                        .ToList(), "Name", "Name");
+
                 AddErrors(result);
             }
             return View(model);

@@ -42,31 +42,17 @@ namespace Fundraising_Capstone.Controllers
         //    var response = new VoiceResponse();
         //    var dial = new Dial();
         //    dial.Conference("miderated-conference-room",
-        //        startConferenceOnEnter: false);
+        //    startConferenceOnEnter: false);
         //    response.Append(dial);
 
 
         //    Console.WriteLine(response.ToString());
-        //}
 
-        //    {
+        //   {
         //        return Content(result.RestException.Message);
         //    }
 
-        //    return Content("The call has been initiated");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        //  //  return Content("The call has been initiated");
+        //}
     }
 }
