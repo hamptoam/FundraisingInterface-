@@ -7,9 +7,9 @@ using Fundraising_Capstone.Keys;
 using Twilio.Jwt;
 using Twilio.Jwt.Client;
 
-namespace Fundraising_Capstone.Controllers
+namespace ClientQuickstart.Controllers
 {
-    public class TokenController : PhoneController
+    public class TokenController : Controller
     { 
         public ActionResult Index()
         {
