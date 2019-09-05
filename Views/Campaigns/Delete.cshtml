@@ -1,0 +1,56 @@
+﻿@model Fundraising_Capstone2.Models.Campaign
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Campaign</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.dailyFunds)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dailyFunds)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.weeklyFunds)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.weeklyFunds)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.monthlyFunds)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.monthlyFunds)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.yearlyFunds)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.yearlyFunds)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
