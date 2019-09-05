@@ -8,16 +8,16 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using Fundraising_Capstone.Models;
+using Fundraising_Capstone2.Models;
 
-namespace Fundraising_Capstone.Controllers
+namespace Fundraising_Capstone2.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-        ApplicationDbContext context;
+        private ApplicationDbContext context;
 
         public AccountController()
         {
@@ -30,58 +30,7 @@ namespace Fundraising_Capstone.Controllers
             SignInManager = signInManager;
         }
 
-        [Authorize]
-        // GET: usercontroller
-        public ActionResult Index()
-        {
-
-            if (User.Identity.IsAuthenticated)
-            {
-                var user = User.Identity;
-                ViewBag.Name = user.Name;
-
-                ViewBag.displayMenu = "No";
-
-                if (isAdminUser())
-                {
-                    ViewBag.displayMenu = "Yes";
-                }
-
-                return View();
-            }
-            else
-            {
-                ViewBag.Name = "Not Logged In";
-            }
-            return View();
-
-
-
-        }
-        public Boolean isAdminUser()
-        {
-
-            if (User.Identity.IsAuthenticated)
-            {
-                var user = User.Identity;
-                ApplicationDbContext context = new ApplicationDbContext();
-                var UserManager = new UserManager<ApplicationUser>(new Microsoft.AspNet.Identity.EntityFramework.UserStore<ApplicationUser>
-                (context));
-                var s = UserManager.GetRoles(user.GetUserId());
-                if (s[0].ToString() == "Admin")
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            return false;
-        }
-    
-
-    public ApplicationSignInManager SignInManager
+        public ApplicationSignInManager SignInManager
         {
             get
             {
@@ -128,11 +77,11 @@ namespace Fundraising_Capstone.Controllers
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.userName, model.Password, model.RememberMe, shouldLockout: false);
+            var result = await SignInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -192,8 +141,9 @@ namespace Fundraising_Capstone.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+
             ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin"))
-                                    .ToList(), "Name", "Name");
+                                            .ToList(), "Name", "Name");
             return View();
         }
 
@@ -210,29 +160,22 @@ namespace Fundraising_Capstone.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-
+                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+                    
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-                    await this.UserManager.AddToRoleAsync(user.Id, model.UserRoles);
-                    return RedirectToAction("Index", "Users");
-                }
-                ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin"))
-                                        .ToList(), "Name", "Name");
-                ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Employee"))
-                                        .ToList(), "Name", "Name");
-                ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Manager"))
-                                        .ToList(), "Name", "Name");
 
+                    return RedirectToAction("Index", "Home");
+                }
                 AddErrors(result);
             }
-            return View(model);
-               
-        }
 
+            // If we got this far, something failed, redisplay form
+            return View(model);
+        }
 
         //
         // GET: /Account/ConfirmEmail

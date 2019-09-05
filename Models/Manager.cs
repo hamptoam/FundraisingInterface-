@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace Fundraising_Capstone.Models
+namespace Fundraising_Capstone2.Models
 {
     public class Manager
     {
@@ -50,7 +50,7 @@ namespace Fundraising_Capstone.Models
 
         //figure out how to represent visual data 
 
-        //Make Campaign model and controller 
+        //Make Campaign model and controller
 
     }
 }

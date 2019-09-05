@@ -34,10 +34,10 @@ div#controls {
         outline: 0;
     }
 
-    div#controls button:active {
-        position: relative;
-        top: 1px;
-    }
+        div#controls button:active {
+            position: relative;
+            top: 1px;
+        }
 
     div#controls div#call-controls input {
         font-family: Helvectica-LightOblique, Helvetica, sans-serif;
@@ -84,4 +84,4 @@ div#controls {
 select,
 textarea {
     max-width: 280px;
-}* 
+}*

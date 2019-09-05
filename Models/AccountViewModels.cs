@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Fundraising_Capstone.Models
+namespace Fundraising_Capstone2.Models
 {
     public class ExternalLoginConfirmationViewModel
     {
@@ -49,8 +49,9 @@ namespace Fundraising_Capstone.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "UserName")]
-        public string userName { get; set; }
+        [Display(Name = "Username")]
+        [EmailAddress]
+        public string UserName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
@@ -62,7 +63,7 @@ namespace Fundraising_Capstone.Models
     }
 
     public class RegisterViewModel
-    {
+    { 
         [Required]
         [Display(Name = "UserRoles")]
         public string UserRoles { get; set; }
@@ -73,16 +74,8 @@ namespace Fundraising_Capstone.Models
         public string Email { get; set; }
 
         [Required]
-        [Display(Name = "UserName")]
-        public string userName { get; set; }
-
-        [Required]
-        [Display(Name = "First Name")]
-        public string firstName { get; set; }
-
-        [Required]
-        [Display(Name = "Last Name")]
-        public string lastName { get; set; }
+        [Display(Name = "Username")]
+        public string UserName { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]

@@ -1,18 +1,18 @@
-namespace Fundraising_Capstone.Migrations
+namespace Fundraising_Capstone2.Migrations
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Fundraising_Capstone.Models.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Fundraising_Capstone2.Models.ApplicationDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(Fundraising_Capstone.Models.ApplicationDbContext context)
+        protected override void Seed(Fundraising_Capstone2.Models.ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

@@ -4,15 +4,14 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace Fundraising_Capstone.Models
+namespace Fundraising_Capstone2.Models
 {
     public class Employee
     {
-    
         [Key]
         public int Id { get; set; }
 
-        public string firstName { get; set;}
+        public string firstName { get; set; }
 
         public string lastName { get; set; }
 
@@ -21,7 +20,7 @@ namespace Fundraising_Capstone.Models
         public string passWord { get; set; }
 
         public List<Callee> callList { get; set; }
-        
+
         public Callee callee { get; set; }
 
         public Decimal dailyFunds { get; set; }
@@ -34,7 +33,5 @@ namespace Fundraising_Capstone.Models
 
         public Decimal yearlyFunds { get; set; }
 
-
-        //add more as they come up 
     }
 }

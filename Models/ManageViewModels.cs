@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 
-namespace Fundraising_Capstone.Models
+namespace Fundraising_Capstone2.Models
 {
     public class IndexViewModel
     {

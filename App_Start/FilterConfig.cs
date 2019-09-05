@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace ClientQuickstart
+namespace Fundraising_Capstone2
 {
     public class FilterConfig
     {

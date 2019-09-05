@@ -1,9 +1,9 @@
-namespace Fundraising_Capstone.Migrations
+namespace Fundraising_Capstone2.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class setupmodels : DbMigration
+    public partial class InitialMigration : DbMigration
     {
         public override void Up()
         {

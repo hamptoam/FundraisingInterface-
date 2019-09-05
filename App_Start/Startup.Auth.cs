@@ -5,9 +5,9 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
-using Fundraising_Capstone.Models;
+using Fundraising_Capstone2.Models;
 
-namespace Fundraising_Capstone
+namespace Fundraising_Capstone2
 {
     public partial class Startup
     {

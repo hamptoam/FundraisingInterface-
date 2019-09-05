@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace Fundraising_Capstone
+namespace Fundraising_Capstone2
 {
     public class BundleConfig
     {
@@ -27,7 +27,7 @@ namespace Fundraising_Capstone
                       "~/Content/site.css"));
 
             bundles.Add(new StyleBundle("~/Scripts/js").Include(
-                "~/Scripts/quickstart.js"));
+               "~/Scripts/quickstart.js"));
         }
     }
 }

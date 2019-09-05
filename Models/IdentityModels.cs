@@ -1,11 +1,10 @@
 ﻿using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Fundraising_Capstone.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace Fundraising_Capstone.Models
+namespace Fundraising_Capstone2.Models
 {
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
@@ -21,8 +20,7 @@ namespace Fundraising_Capstone.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-
-        public DbSet<Callee> Callees  { get; set; }
+        public DbSet<Callee> Callees { get; set; }
 
         public DbSet<Manager> Managers { get; set; }
 

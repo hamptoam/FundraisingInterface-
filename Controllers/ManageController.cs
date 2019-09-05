@@ -6,9 +6,9 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using Fundraising_Capstone.Models;
+using Fundraising_Capstone2.Models;
 
-namespace Fundraising_Capstone.Controllers
+namespace Fundraising_Capstone2.Controllers
 {
     [Authorize]
     public class ManageController : Controller

@@ -3,41 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Twilio;
-using Twilio.AspNet.Mvc;
-using Twilio.Clients;
-using Twilio.TwiML;
-using TwilioMakeAndRecieveCalls.Controllers;
-using Fundraising_Capstone;
-using Twilio.Rest.Api.V2010.Account;
 
-namespace Fundraising_Capstone.Controllers
+namespace Fundraising_Capstone2.Controllers
 {
-    public class HomeController : TwilioController
+    public class HomeController : Controller
     {
         public ActionResult Index()
         {
             return View();
         }
-
-        public ActionResult RecieveCall()
-        {
-            var twiml = new VoiceResponse();
-            return TwiML(twiml.Say("You are calling Amelia").Dial(Settings.MyOwnNumber));
-        }
-
-
-
-
-        //[HttpPost]
-        //public ActionResult MakeCall(string number)
-        //{
-        //    var client = new TwilioRestClient(Settings.AccountSid, Settings.AuthToken);
-        //   
-
-        //    
-        //}
-
 
         public ActionResult About()
         {
@@ -52,22 +26,5 @@ namespace Fundraising_Capstone.Controllers
 
             return View();
         }
-
-
-        //public ActionResult Create(
-        //    [Bind(Include = "firstName, lastName, phoneNumber")] Ticket ticket)
-        //{
-        //    ticket.CreatedAt = DateTime.UtcNow;
-        //    if (ModelState.IsValid)
-        //    {
-        //        _repository.Create(ticket);
-        //        ViewBag.Success = "Your ticket was submitted!";
-        //        ModelState.Clear();
-        //        return View("Index");
-        //    }
-        //    return View("Index");
-        //    }
-        //}
-
     }
 }

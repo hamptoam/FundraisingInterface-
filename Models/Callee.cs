@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace Fundraising_Capstone.Models
+namespace Fundraising_Capstone2.Models
 {
     public class Callee
     {
@@ -13,7 +13,7 @@ namespace Fundraising_Capstone.Models
 
         public string firstName { get; set; }
 
-        public string lastName { get; set;  }
+        public string lastName { get; set; }
 
         public string Address { get; set; }
 
@@ -21,11 +21,8 @@ namespace Fundraising_Capstone.Models
 
         public int answerCount { get; set; }
 
-        public List<string> callHistory { get; set;}
+        public List<string> callHistory { get; set; }
 
         public List<string> givingHistory { get; set; }
-
-        //add more as they come up
-
     }
 }
