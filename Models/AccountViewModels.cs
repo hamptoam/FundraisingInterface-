@@ -50,7 +50,6 @@ namespace Fundraising_Capstone2.Models
     {
         [Required]
         [Display(Name = "Username")]
-        [EmailAddress]
         public string UserName { get; set; }
 
         [Required]
