@@ -9,11 +9,13 @@ namespace Fundraising_Capstone2.Models
     public class Campaign
     {
         [Key]
-        public int Id { get; set; }
+        public int CampaignId { get; set; }
 
         public List<Callee> Leads { get; set; }
 
         public List<Employee> assignedCallers { get; set; }
+
+        public List<Callee> callees { get; set; }
 
         public Manager campaignManager { get; set; }
 
@@ -24,6 +26,8 @@ namespace Fundraising_Capstone2.Models
         public Decimal monthlyFunds { get; set; }
 
         public Decimal yearlyFunds { get; set; }
+
+
 
     }
 }

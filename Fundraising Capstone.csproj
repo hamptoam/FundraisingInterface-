@@ -258,6 +258,10 @@
     <Compile Include="Migrations\201909051619327_FixedLoginModel.Designer.cs">
       <DependentUpon>201909051619327_FixedLoginModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909061538195_updatedmodels2.cs" />
+    <Compile Include="Migrations\201909061538195_updatedmodels2.Designer.cs">
+      <DependentUpon>201909061538195_updatedmodels2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Callee.cs" />
@@ -377,6 +381,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909051619327_FixedLoginModel.resx">
       <DependentUpon>201909051619327_FixedLoginModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909061538195_updatedmodels2.resx">
+      <DependentUpon>201909061538195_updatedmodels2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

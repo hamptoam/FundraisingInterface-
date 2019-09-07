@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -9,6 +10,8 @@ namespace Fundraising_Capstone2.Models
     public class Callee
     {
         [Key]
+        public int calleeId { get; set; }
+
         public int phoneNumber { get; set; }
 
         public string firstName { get; set; }
@@ -21,8 +24,26 @@ namespace Fundraising_Capstone2.Models
 
         public int answerCount { get; set; }
 
+        public List<Callee> callees { get; set; }
+
         public List<string> callHistory { get; set; }
 
         public List<string> givingHistory { get; set; }
+
+        public DateTime lastCallDate { get; set; }
+
+        public DateTime lastCallTime { get; set; }
+
+        public DateTime nextCallDate { get; set; }
+
+        public DateTime nextCallTime { get; set; }
+
+        public string calleeDemeanor { get; set; }
+
+        public bool isInterested { get; set; }
+
+        [ForeignKey("Campaign")]
+        public int CampaignId { get; set; }
+
     }
 }
