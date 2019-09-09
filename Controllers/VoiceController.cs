@@ -43,17 +43,14 @@ namespace ClientQuickstart.Controllers
             //return Content(response.ToString(), "text/xml");
         }
 
-
-
         public void Dial()
         {
             var response = new VoiceResponse();
-            var dial = new Dial(calleeId: "");
+            var dial = new Dial(callerId: "");
             dial.Number("");
             response.Append(dial);
 
             Console.WriteLine(response.ToString());
-
         }
 
         //public ActionResult Index(string to)
