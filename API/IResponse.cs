@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 
 namespace Fundraising_Capstone2.API
@@ -21,7 +22,7 @@ namespace Fundraising_Capstone2.API
         /// Updates the response asynchronously
         ///</summary>
         ///<returns>An awaitable task</returns>
-        TaskEventHandler UpdateAsync();
+        Task UpdateAsync();
 
 
     }

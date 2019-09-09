@@ -18,12 +18,12 @@ namespace Fundraising_Capstone2.API
         /// <summary>
         /// Indicates if the client supports sending text messages 
         /// </summary>summary>
-         bool CanSendSms { get;}
+        bool CanSendSms { get;}
 
         /// <summary>
         /// Indicates if the client supports calls 
         /// </summary>
-        bool CanCall { get; }
+        static bool CanCall { get; }
 
         /// <summary> 
         //Indicates if the from number is required 

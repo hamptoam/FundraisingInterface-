@@ -8,19 +8,22 @@ using System.Text;
 using Twilio;
 using Twilio.Rest.Api.V2010.Account;
 using Twilio.Types;
+using Fundraising_Capstone2.Keys;
 
 namespace Fundraising_Capstone2.API
 {
     public class TwilioWrapperClient : IClient
     {
+
+        private readonly string sID, authToken;
         ///<summary>
         /// the authentication items
         ///</summary>
-        private readonly String(//sid, authtoken)
 
-        public TwilioWrapperClient(string sid, string auth)
+        public TwilioWrapperClient(string sID, string authToken)
         {
-            // put keys in here fix ^^
+            APIKeys.sID = sID;
+            APIKeys.authToken = authToken; 
         }
 
         bool CanCall { get { return true; } }
@@ -33,8 +36,7 @@ namespace Fundraising_Capstone2.API
 
         public void Init()
         {
-            TwilioClient.Init() //keys
-
+            TwilioClient.Init(sID, authToken);
 
             IsInitialized = true;
         }
@@ -49,7 +51,7 @@ namespace Fundraising_Capstone2.API
             var call = await CallResource.CreateAsync(
                 pnTo,
                 pnFrom,
-                url: new Uri()); //requesturl
+                url: new Uri($"http://www.rokurocket.com/twilio_call_ext_server/twilio-phone-dialer-servr/voice.php")); //requesturl
 
             return new CallResponse(call);
         }
@@ -74,34 +76,33 @@ namespace Fundraising_Capstone2.API
 
         public class CallResponse : IResponse
         {
-            // private string sid
+            private string SID;
 
             public bool CanUpdate { get { return true; } }
 
             public string Status { get; set; }
 
-            public CallResponse(CallResourse call)
+            public CallResponse(CallResource call)
             {
                 SetCall(call);
             }
 
             private void SetCall(CallResource call)
             {
-                // sid call.sid
+                SID = call.Sid;
                 Status = call.Status.ToString();
             }
 
             public async Task UpdateAsync()
             {
-                var call = await CallResource.FetchAsync()//sid)
+                var call = await CallResource.FetchAsync(SID);
                 SetCall(call);
             }
         }
 
         public class TextResponse : IResponse
         {
-            // private string sid
-
+            public static string V = APIKeys.sID;
             public bool CanUpdate { get { return true; } }
 
             public string Status { get; set; }
@@ -119,7 +120,7 @@ namespace Fundraising_Capstone2.API
 
             public async Task UpdateAsync()
             {
-                var call = await MessageResource.FetchAsync();
+                var call = await MessageResource.FetchAsync(APIKeys.sID);
 
                 SetMessage(call);
             }
