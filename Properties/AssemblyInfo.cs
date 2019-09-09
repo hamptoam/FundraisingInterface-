@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ClientQuickstart")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Sms and call client")]
+[assembly: AssemblyDescription("Send text messages and call phone numbers")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ClientQuickstart")]
-[assembly: AssemblyCopyright("Copyright © 2015")]
+[assembly: AssemblyProduct("MatthiWare")]
+[assembly: AssemblyCopyright("Copyright Matthiware 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

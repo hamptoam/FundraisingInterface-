@@ -26,7 +26,7 @@ namespace Fundraising_Capstone2.API
             APIKeys.authToken = authToken; 
         }
 
-        bool CanCall { get { return true; } }
+        public bool CanCall { get { return true; } }
 
         public bool CanSendSms { get { return true; } }
 

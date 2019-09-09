@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -8,8 +9,15 @@ namespace Fundraising_Capstone2.Models
 {
     public class Employee
     {
+        public Employee()
+        {
+
+            this.Campaigns = new HashSet<Campaign>();
+        }
+
+
         [Key]
-        public int Id { get; set; }
+        public int employeeId { get; set; }
 
         public string firstName { get; set; }
 
@@ -32,6 +40,8 @@ namespace Fundraising_Capstone2.Models
         public Decimal quarterlyFunds { get; set; }
 
         public Decimal yearlyFunds { get; set; }
+
+        public virtual ICollection<Campaign> Campaigns { get; set; }
 
     }
 }

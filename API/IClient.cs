@@ -23,7 +23,7 @@ namespace Fundraising_Capstone2.API
         /// <summary>
         /// Indicates if the client supports calls 
         /// </summary>
-        static bool CanCall { get; }
+        bool CanCall { get; }
 
         /// <summary> 
         //Indicates if the from number is required 

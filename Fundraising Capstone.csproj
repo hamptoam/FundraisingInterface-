@@ -228,6 +228,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\IClient.cs" />
+    <Compile Include="API\IResponse.cs" />
+    <Compile Include="API\TwilioWrapperClient.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -245,22 +248,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Keys\APIKeys.cs" />
-    <Compile Include="Migrations\201909051242161_InitialMigration.cs" />
-    <Compile Include="Migrations\201909051242161_InitialMigration.Designer.cs">
-      <DependentUpon>201909051242161_InitialMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909051327295_UpdatedModels.cs" />
-    <Compile Include="Migrations\201909051327295_UpdatedModels.Designer.cs">
-      <DependentUpon>201909051327295_UpdatedModels.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909051619327_FixedLoginModel.cs" />
-    <Compile Include="Migrations\201909051619327_FixedLoginModel.Designer.cs">
-      <DependentUpon>201909051619327_FixedLoginModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909061538195_updatedmodels2.cs" />
-    <Compile Include="Migrations\201909061538195_updatedmodels2.Designer.cs">
-      <DependentUpon>201909061538195_updatedmodels2.cs</DependentUpon>
+    <Compile Include="API\Keys\APIKeys.cs" />
+    <Compile Include="Migrations\201909091635004_dbReset.cs" />
+    <Compile Include="Migrations\201909091635004_dbReset.Designer.cs">
+      <DependentUpon>201909091635004_dbReset.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -358,6 +349,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Token\" />
+    <Folder Include="Views\Voice\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -373,17 +365,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201909051242161_InitialMigration.resx">
-      <DependentUpon>201909051242161_InitialMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909051327295_UpdatedModels.resx">
-      <DependentUpon>201909051327295_UpdatedModels.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909051619327_FixedLoginModel.resx">
-      <DependentUpon>201909051619327_FixedLoginModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909061538195_updatedmodels2.resx">
-      <DependentUpon>201909061538195_updatedmodels2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201909091635004_dbReset.resx">
+      <DependentUpon>201909091635004_dbReset.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
@@ -404,7 +387,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50931</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:8080</IISUrl>
+          <IISUrl>https://localhost:44313</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

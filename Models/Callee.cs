@@ -42,8 +42,9 @@ namespace Fundraising_Capstone2.Models
 
         public bool isInterested { get; set; }
 
-        [ForeignKey("Campaign")]
         public int CampaignId { get; set; }
+        [ForeignKey("CampaignId")]
+        public Campaign Campaign { get; set; }
 
     }
 }
