@@ -1,15 +1,20 @@
 ﻿
 @{
-    if (this.User.IsInRole("Employee"))
+    if (this.User.Identity.IsAuthenticated)
     {
-        Layout = "~/Views/Voice/Index.cshtml";
-    }
-    else if (this.User.IsInRole("Manager"))
-    {
-        Layout = "~/Views/Shared/_ManagerLayout.cshtml";
-    }
-    else { 
-    Layout = "~/Views/Shared/_Layout.cshtml";
+
+        if (this.User.IsInRole("Employee"))
+        {
+            Layout = "~/Views/Phone/Index.cshtml";
+        }
+        else if (this.User.IsInRole("Manager"))
+        {
+            Layout = "~/Views/Shared/_ManagerLayout.cshtml";
+        }
+        else
+        {
+            Layout = "~/Views/Phone/Index.cshtml";
+        }
     }
 }
 

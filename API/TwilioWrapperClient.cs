@@ -50,7 +50,7 @@ namespace Fundraising_Capstone2.API
             dial.Number("");
             response.Append(dial);
 
-            CallAsync(pnFrom, pnTo, msg);
+         //   CallAsync(pnFrom, pnTo, msg);
 
             Console.WriteLine(response.ToString());
         }

@@ -244,7 +244,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ManagersController.cs" />
     <Compile Include="Controllers\TokenController.cs" />
-    <Compile Include="Controllers\VoiceController.cs" />
+    <Compile Include="Controllers\PhoneController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -266,6 +266,7 @@
     <Compile Include="Models\Manager.cs" />
     <Compile Include="Models\ManagerEmployee.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Phone.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -350,11 +351,12 @@
     <Content Include="Views\Callees\Details.cshtml" />
     <Content Include="Views\Callees\Edit.cshtml" />
     <Content Include="Views\Callees\Index.cshtml" />
-    <Content Include="Views\Voice\Index.cshtml" />
+    <Content Include="Views\Phone\Index.cshtml" />
+    <Content Include="Views\Phone\Dial.cshtml" />
+    <Content Include="Views\Phone\Text.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Token\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
