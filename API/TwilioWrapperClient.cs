@@ -9,6 +9,8 @@ using Twilio;
 using Twilio.Rest.Api.V2010.Account;
 using Twilio.Types;
 using Fundraising_Capstone2.Keys;
+using Twilio.TwiML;
+using Twilio.TwiML.Voice;
 
 namespace Fundraising_Capstone2.API
 {
@@ -39,6 +41,18 @@ namespace Fundraising_Capstone2.API
             TwilioClient.Init(sID, authToken);
 
             IsInitialized = true;
+        }
+
+        public void Dial()
+        {
+            var response = new VoiceResponse();
+            var dial = new Dial(callerId: "");
+            dial.Number("");
+            response.Append(dial);
+
+            CallAsync(pnFrom, pnTo, msg);
+
+            Console.WriteLine(response.ToString());
         }
 
         public async Task<IResponse> CallAsync(string from, string to, string msg)
@@ -93,7 +107,7 @@ namespace Fundraising_Capstone2.API
                 Status = call.Status.ToString();
             }
 
-            public async Task UpdateAsync()
+            public async System.Threading.Tasks.Task UpdateAsync()
             {
                 var call = await CallResource.FetchAsync(SID);
                 SetCall(call);
@@ -118,7 +132,7 @@ namespace Fundraising_Capstone2.API
                 Status = call.Status.ToString();
             }
 
-            public async Task UpdateAsync()
+            public async System.Threading.Tasks.Task UpdateAsync()
             {
                 var call = await MessageResource.FetchAsync(APIKeys.sID);
 

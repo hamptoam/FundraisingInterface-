@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using Twilio.TwiML;
 using Twilio.TwiML.Voice;
+using Fundraising_Capstone2.API;
+using Fundraising_Capstone2.Keys;
 
 namespace ClientQuickstart.Controllers
 {
@@ -18,6 +20,9 @@ namespace ClientQuickstart.Controllers
         [HttpPost]
         public ActionResult Index(string to)
         {
+            TwilioWrapperClient test = new TwilioWrapperClient(APIKeys.SID, APIKeys.AuthToken);
+            
+
           var callerId = ConfigurationManager.AppSettings["TwilioCallerId"];
 
             var response = new VoiceResponse();
@@ -43,15 +48,7 @@ namespace ClientQuickstart.Controllers
             return Content(response.ToString(), "text/xml");
         }
 
-        public void Dial()
-        {
-            var response = new VoiceResponse();
-            var dial = new Dial(callerId: "");
-            dial.Number("");
-            response.Append(dial);
-
-            Console.WriteLine(response.ToString());
-        }
+       
 
         //public ActionResult Index(string to)
         //{

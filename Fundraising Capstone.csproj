@@ -350,11 +350,11 @@
     <Content Include="Views\Callees\Details.cshtml" />
     <Content Include="Views\Callees\Edit.cshtml" />
     <Content Include="Views\Callees\Index.cshtml" />
+    <Content Include="Views\Voice\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Token\" />
-    <Folder Include="Views\Voice\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
