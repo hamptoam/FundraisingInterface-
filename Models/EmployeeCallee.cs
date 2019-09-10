@@ -7,7 +7,7 @@ using System.Web;
 
 namespace Fundraising_Capstone2.Models
 {
-    public class CampaignEmployee
+    public class EmployeeCallee
     {
         [Key]
         public int Id { get; set; }
@@ -15,8 +15,7 @@ namespace Fundraising_Capstone2.Models
         [ForeignKey("Employee")]
         public int EmployeeId { get; set; }
 
-        [ForeignKey("Campaign")]
-        public int CampaignId { get; set; }
-        
+        [ForeignKey("Callee")]
+        public int CalleeId { get; set; }
     }
 }

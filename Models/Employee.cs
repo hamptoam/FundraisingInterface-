@@ -17,7 +17,7 @@ namespace Fundraising_Capstone2.Models
 
 
         [Key]
-        public int employeeId { get; set; }
+        public int EmployeeId { get; set; }
 
         public string firstName { get; set; }
 

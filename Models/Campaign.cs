@@ -12,7 +12,7 @@ namespace Fundraising_Capstone2.Models
 
         public Campaign()
         {
-            this.Employees = new HashSet<Employee>
+            this.Employees = new HashSet<Employee>();
         }
 
 
@@ -20,8 +20,8 @@ namespace Fundraising_Capstone2.Models
         public int CampaignId { get; set; }
 
         public List<Callee> Leads { get; set; }
-
-        public List<Employee> assignedCallers { get; set; }
+    
+       // public List<Employee> assignedCallers { get; set; }
 
         public List<Callee> callees { get; set; }
 

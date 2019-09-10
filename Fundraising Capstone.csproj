@@ -249,17 +249,22 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="API\Keys\APIKeys.cs" />
-    <Compile Include="Migrations\201909091635004_dbReset.cs" />
-    <Compile Include="Migrations\201909091635004_dbReset.Designer.cs">
-      <DependentUpon>201909091635004_dbReset.cs</DependentUpon>
+    <Compile Include="Migrations\201909101357444_JunctionTables.cs" />
+    <Compile Include="Migrations\201909101357444_JunctionTables.Designer.cs">
+      <DependentUpon>201909101357444_JunctionTables.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Callee.cs" />
+    <Compile Include="Models\CalleeCampaign.cs" />
     <Compile Include="Models\Campaign.cs" />
+    <Compile Include="Models\CampaignEmployee.cs" />
+    <Compile Include="Models\CampaignManager.cs" />
     <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\EmployeeCallee.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Manager.cs" />
+    <Compile Include="Models\ManagerEmployee.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -365,8 +370,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201909091635004_dbReset.resx">
-      <DependentUpon>201909091635004_dbReset.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201909101357444_JunctionTables.resx">
+      <DependentUpon>201909101357444_JunctionTables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

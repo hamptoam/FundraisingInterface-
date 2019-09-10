@@ -7,16 +7,15 @@ using System.Web;
 
 namespace Fundraising_Capstone2.Models
 {
-    public class CampaignEmployee
+    public class CampaignManager
     {
         [Key]
         public int Id { get; set; }
 
-        [ForeignKey("Employee")]
-        public int EmployeeId { get; set; }
-
         [ForeignKey("Campaign")]
         public int CampaignId { get; set; }
-        
+
+        [ForeignKey("Manager")]
+        public int ManagerId { get; set; }
     }
 }

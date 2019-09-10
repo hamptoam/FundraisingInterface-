@@ -10,7 +10,7 @@ namespace Fundraising_Capstone2.Models
     public class Callee
     {
         [Key]
-        public int calleeId { get; set; }
+        public int CalleeId { get; set; }
 
         public int phoneNumber { get; set; }
 

@@ -10,7 +10,7 @@ namespace Fundraising_Capstone2.Models
     {
 
         [Key]
-        public int id { get; set; }
+        public int ManagerId { get; set; }
 
         public string firstName { get; set; }
 
