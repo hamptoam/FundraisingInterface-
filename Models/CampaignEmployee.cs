@@ -14,9 +14,11 @@ namespace Fundraising_Capstone2.Models
 
         [ForeignKey("Employee")]
         public int EmployeeId { get; set; }
+        public Employee Employee { get; set; }
 
         [ForeignKey("Campaign")]
         public int CampaignId { get; set; }
+        public Campaign Campaign { get; set; }
         
     }
 }

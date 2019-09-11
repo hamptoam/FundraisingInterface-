@@ -253,6 +253,10 @@
     <Compile Include="Migrations\201909101357444_JunctionTables.Designer.cs">
       <DependentUpon>201909101357444_JunctionTables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909111441575_CheckingForeignKeyStatus.cs" />
+    <Compile Include="Migrations\201909111441575_CheckingForeignKeyStatus.Designer.cs">
+      <DependentUpon>201909111441575_CheckingForeignKeyStatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Callee.cs" />
@@ -374,6 +378,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201909101357444_JunctionTables.resx">
       <DependentUpon>201909101357444_JunctionTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909111441575_CheckingForeignKeyStatus.resx">
+      <DependentUpon>201909111441575_CheckingForeignKeyStatus.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

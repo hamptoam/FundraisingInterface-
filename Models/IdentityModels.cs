@@ -28,6 +28,18 @@ namespace Fundraising_Capstone2.Models
 
         public DbSet<Campaign> Campaigns { get; set; }
 
+        public DbSet<CalleeCampaign> CalleeCampaigns { get; set; }
+
+        public DbSet<CampaignEmployee> CampaignEmployees { get; set; }
+
+        public DbSet<CampaignManager> CampaignManagers { get; set; }
+
+        public DbSet<EmployeeCallee> EmployeeCallees { get; set; }
+
+        public DbSet<ManagerEmployee> ManagerEmployees { get; set; }
+
+
+
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

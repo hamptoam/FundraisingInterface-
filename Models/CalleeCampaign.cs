@@ -15,9 +15,11 @@ namespace Fundraising_Capstone2.Models
 
         [ForeignKey("Callee")]
         public int CalleeId { get; set; }
+        public Callee Callee { get; set; }
 
         [ForeignKey("Campaign")]
         public int CampaignId { get; set; }
+        public Campaign Campaign { get; set; }
     }
 
 }
