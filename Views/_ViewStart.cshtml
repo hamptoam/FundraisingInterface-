@@ -5,7 +5,7 @@
 
         if (this.User.IsInRole("Employee"))
         {
-            Layout = "~/Views/Phone/Index.cshtml";
+            Layout = "~/Views/Shared/_EmployeeLayout.cshtml";
         }
         else if (this.User.IsInRole("Manager"))
         {
@@ -13,7 +13,7 @@
         }
         else
         {
-            Layout = "~/Views/Phone/Index.cshtml";
+            Layout = "~/Views/Shared/_EmployeeLayout.cshtml";
         }
     }
 }

@@ -171,7 +171,7 @@ namespace Fundraising_Capstone2.Controllers
 
                     if (this.User.IsInRole("Employee"))
                     {
-                        return RedirectToAction("Phone", "Index");
+                        return RedirectToAction("Phones", "Index");
                     }
                     else if (this.User.IsInRole("Manager"))
                     {

@@ -243,6 +243,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ManagersController.cs" />
+    <Compile Include="Controllers\PhonesController.cs" />
     <Compile Include="Controllers\TokenController.cs" />
     <Compile Include="Controllers\PhoneController.cs" />
     <Compile Include="Global.asax.cs">
@@ -256,6 +257,10 @@
     <Compile Include="Migrations\201909111441575_CheckingForeignKeyStatus.cs" />
     <Compile Include="Migrations\201909111441575_CheckingForeignKeyStatus.Designer.cs">
       <DependentUpon>201909111441575_CheckingForeignKeyStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909121306441_updatedmodels3.cs" />
+    <Compile Include="Migrations\201909121306441_updatedmodels3.Designer.cs">
+      <DependentUpon>201909121306441_updatedmodels3.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -355,9 +360,11 @@
     <Content Include="Views\Callees\Details.cshtml" />
     <Content Include="Views\Callees\Edit.cshtml" />
     <Content Include="Views\Callees\Index.cshtml" />
-    <Content Include="Views\Phone\Index.cshtml" />
-    <Content Include="Views\Phone\Dial.cshtml" />
-    <Content Include="Views\Phone\Text.cshtml" />
+    <Content Include="Views\Phones\Create.cshtml" />
+    <Content Include="Views\Phones\Delete.cshtml" />
+    <Content Include="Views\Phones\Details.cshtml" />
+    <Content Include="Views\Phones\Edit.cshtml" />
+    <Content Include="Views\Phones\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -381,6 +388,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909111441575_CheckingForeignKeyStatus.resx">
       <DependentUpon>201909111441575_CheckingForeignKeyStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909121306441_updatedmodels3.resx">
+      <DependentUpon>201909121306441_updatedmodels3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
