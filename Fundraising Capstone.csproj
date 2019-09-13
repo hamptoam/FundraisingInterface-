@@ -262,6 +262,10 @@
     <Compile Include="Migrations\201909121306441_updatedmodels3.Designer.cs">
       <DependentUpon>201909121306441_updatedmodels3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909131313133_ChangedCalleeModel.cs" />
+    <Compile Include="Migrations\201909131313133_ChangedCalleeModel.Designer.cs">
+      <DependentUpon>201909131313133_ChangedCalleeModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Callee.cs" />
@@ -365,6 +369,7 @@
     <Content Include="Views\Phones\Details.cshtml" />
     <Content Include="Views\Phones\Edit.cshtml" />
     <Content Include="Views\Phones\Index.cshtml" />
+    <Content Include="Views\Phones\Dial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -391,6 +396,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909121306441_updatedmodels3.resx">
       <DependentUpon>201909121306441_updatedmodels3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909131313133_ChangedCalleeModel.resx">
+      <DependentUpon>201909131313133_ChangedCalleeModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

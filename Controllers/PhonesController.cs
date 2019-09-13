@@ -1,12 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
+using Fundraising_Capstone2.API;
+using Fundraising_Capstone2.Keys;
 using Fundraising_Capstone2.Models;
+using Twilio.TwiML;
+using Twilio.TwiML.Voice;
 
 namespace Fundraising_Capstone2.Controllers
 {
@@ -14,11 +20,15 @@ namespace Fundraising_Capstone2.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        public object Callee { get; private set; }
+
         // GET: Phones
-        public ActionResult Index()
+        public ActionResult Index(string to)
         {
-            return View(db.Phones.ToList());
+            // string to = this.Callee.phoneNumber.ToString(); 
+              return View(db.Phones.ToList());
         }
+
 
         // GET: Phones/Details/5
         public ActionResult Details(int? id)
@@ -113,6 +123,38 @@ namespace Fundraising_Capstone2.Controllers
             db.Phones.Remove(phone);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Dial(string to)
+        {
+            TwilioWrapperClient test = new TwilioWrapperClient(APIKeys.SID, APIKeys.AuthToken);
+
+
+            var callerId = ConfigurationManager.AppSettings["TwilioCallerId"];
+
+            var response = new VoiceResponse();
+            if (!string.IsNullOrEmpty(to))
+            {
+                var dial = new Dial(callerId: callerId);
+                // wrap the phone number or client name in the appropriate TwiML verb
+                ////////    // by checking if the number given has only digits and format symbols
+                if (Regex.IsMatch(to, "^[\\d\\+\\-\\(\\) ]+$"))
+                {
+                    dial.Number();
+                }
+                else
+                {
+                    dial.Client(to);
+                }
+                 response.Dial(dial);
+            }
+            else
+            {
+                response.Say("Thanks for calling!");
+            }
+            return Content(response.ToString(), "text/xml");
+
+
         }
 
         protected override void Dispose(bool disposing)
