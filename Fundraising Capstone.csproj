@@ -245,7 +245,6 @@
     <Compile Include="Controllers\ManagersController.cs" />
     <Compile Include="Controllers\PhonesController.cs" />
     <Compile Include="Controllers\TokenController.cs" />
-    <Compile Include="Controllers\PhoneController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

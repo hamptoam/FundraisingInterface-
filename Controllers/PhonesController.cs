@@ -26,7 +26,7 @@ namespace Fundraising_Capstone2.Controllers
         public ActionResult Index(string to)
         {
             // string to = this.Callee.phoneNumber.ToString(); 
-              return View(db.Phones.ToList());
+             return View(); //db.Phones.ToList()
         }
 
 
@@ -165,5 +165,33 @@ namespace Fundraising_Capstone2.Controllers
             }
             base.Dispose(disposing);
         }
+
+
+        //public ActionResult Index(string to)
+        //{
+        //    var response = new VoiceResponse();
+        //    response.Say("Thanks for calling!");
+
+        //    Execute();
+        //    return Content(response.ToString(), "text/xml");
+        //}
+
+
+
+        //public void Conference()
+        //{
+        //    var response = new VoiceResponse();
+        //    var dial = new Dial();
+        //    dial.Conference("miderated-conference-room",
+        //    startConferenceOnEnter: false);
+        //    response.Append(dial);
+
+        //    Console.WriteLine(response.ToString());
+
+        //   {
+        //        return Content(result.RestException.Message);
+        //    }
+
+        //  //  return Content("The call has been initiated");
     }
 }
