@@ -39,7 +39,7 @@ namespace Fundraising_Capstone2.API
         /// Calls the number asynchronously 
         /// </summary>
         /// <param name="from"> The from number can be optional <seee cref="FromNumberRequired"/></param>
-        /// <param name="To">The number to call</param>
+        /// <param name="to">The number to call</param>
         /// <param name="msg"></param>
         /// <returns>The response</returns>
         Task<IResponse> CallAsync(string from, string to, string msg);
