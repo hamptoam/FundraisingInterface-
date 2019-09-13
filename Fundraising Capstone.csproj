@@ -266,6 +266,10 @@
     <Compile Include="Migrations\201909131313133_ChangedCalleeModel.Designer.cs">
       <DependentUpon>201909131313133_ChangedCalleeModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909131421514_SeedingData.cs" />
+    <Compile Include="Migrations\201909131421514_SeedingData.Designer.cs">
+      <DependentUpon>201909131421514_SeedingData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Callee.cs" />
@@ -399,6 +403,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909131313133_ChangedCalleeModel.resx">
       <DependentUpon>201909131313133_ChangedCalleeModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909131421514_SeedingData.resx">
+      <DependentUpon>201909131421514_SeedingData.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
