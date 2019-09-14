@@ -45,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Deedle, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Deedle.2.0.0\lib\net45\Deedle.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -56,6 +59,21 @@
     </Reference>
     <Reference Include="Faker.NET47, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\Faker.Net.1.1.1\lib\net471\Faker.NET47.dll</HintPath>
+    </Reference>
+    <Reference Include="FSharp.Core, Version=4.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\FSharp.Core.4.5.4\lib\net45\FSharp.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis, Version=1.41.1.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Apis.1.41.1\lib\net45\Google.Apis.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Core, Version=1.41.1.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Apis.Core.1.41.1\lib\net45\Google.Apis.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.PlatformServices, Version=1.41.1.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Apis.1.41.1\lib\net45\Google.Apis.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.DataTable.Net.Wrapper, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Google.DataTable.Net.Wrapper.4.0.0\lib\net461\Google.DataTable.Net.Wrapper.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.IdentityModel.Logging, Version=1.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -182,6 +200,9 @@
       <Private>True</Private>
       <HintPath>packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="Wikiled.Google.Chart, Version=1.0.19.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Wikiled.Google.Chart.1.0.19\lib\netstandard2.0\Wikiled.Google.Chart.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.AspNet.Identity.Core">
@@ -273,6 +294,10 @@
     <Compile Include="Migrations\201909131845207_ChangedPhoneNumberFormat.Designer.cs">
       <DependentUpon>201909131845207_ChangedPhoneNumberFormat.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909140158151_AddedModelRemovedSeperateFundsProperties.cs" />
+    <Compile Include="Migrations\201909140158151_AddedModelRemovedSeperateFundsProperties.Designer.cs">
+      <DependentUpon>201909140158151_AddedModelRemovedSeperateFundsProperties.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Callee.cs" />
@@ -282,6 +307,7 @@
     <Compile Include="Models\CampaignManager.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\EmployeeCallee.cs" />
+    <Compile Include="Models\Funds.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Manager.cs" />
     <Compile Include="Models\ManagerEmployee.cs" />
@@ -412,6 +438,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909131845207_ChangedPhoneNumberFormat.resx">
       <DependentUpon>201909131845207_ChangedPhoneNumberFormat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909140158151_AddedModelRemovedSeperateFundsProperties.resx">
+      <DependentUpon>201909140158151_AddedModelRemovedSeperateFundsProperties.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

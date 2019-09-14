@@ -31,15 +31,8 @@ namespace Fundraising_Capstone2.Models
 
         public Callee callee { get; set; }
 
-        public Decimal dailyFunds { get; set; }
 
-        public Decimal weeklyFunds { get; set; }
 
-        public Decimal monthlyFunds { get; set; }
-
-        public Decimal quarterlyFunds { get; set; }
-
-        public Decimal yearlyFunds { get; set; }
 
         public virtual ICollection<Campaign> Campaigns { get; set; }
 

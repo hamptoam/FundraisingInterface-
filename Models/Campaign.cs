@@ -25,16 +25,6 @@ namespace Fundraising_Capstone2.Models
 
         public List<Callee> callees { get; set; }
 
-        public Manager campaignManager { get; set; }
-
-        public Decimal dailyFunds { get; set; }
-
-        public Decimal weeklyFunds { get; set; }
-
-        public Decimal monthlyFunds { get; set; }
-
-        public Decimal yearlyFunds { get; set; }
-
         public virtual ICollection<Employee> Employees { get; set; }
     }
 }

@@ -26,7 +26,16 @@ namespace Fundraising_Capstone2.Controllers
         public ActionResult Index(string to)
         {
             // string to = this.Callee.phoneNumber.ToString(); 
-             return View(); //db.Phones.ToList()
+       
+            var response = new VoiceResponse();
+            response.Dial(to);
+            response.Say("Goodbye");
+
+            Console.WriteLine(response.ToString());
+
+            return View(); //db.Phones.ToList()
+
+
         }
 
 
@@ -124,7 +133,7 @@ namespace Fundraising_Capstone2.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
+        [HttpPost]
         public ActionResult Dial(string to)
         {
             TwilioWrapperClient test = new TwilioWrapperClient(APIKeys.SID, APIKeys.AuthToken);
@@ -133,41 +142,42 @@ namespace Fundraising_Capstone2.Controllers
             var callerId = ConfigurationManager.AppSettings["TwilioCallerId"];
 
             var response = new VoiceResponse();
-
-         
-            response.Dial("--4567");
-            response.Say("Goodbye");
-
-            Console.WriteLine(response.ToString());
-
-            
-
-
-
-
-            //if (!string.IsNullOrEmpty(to))
-            //{
-            //    var dial = new Dial(callerId: callerId);
-            //    // wrap the phone number or client name in the appropriate TwiML verb
-            //    ////////    // by checking if the number given has only digits and format symbols
-            //    if (Regex.IsMatch(to, "^[\\d\\+\\-\\(\\) ]+$"))
-            //    {
-            //        dial.Number();
-            //    }
-            //    else
-            //    {
-            //        dial.Client(to);
-            //    }
-            //     response.Dial(dial);
-            //}
-            //else
-            //{
-            //    response.Say("Thanks for calling!");
-            //}
+            if (!string.IsNullOrEmpty(to))
+            {
+                var dial = new Dial(callerId: callerId);
+                // wrap the phone number or client name in the appropriate TwiML verb
+                ////////    // by checking if the number given has only digits and format symbols
+                if (Regex.IsMatch(to, "^[\\d\\+\\-\\(\\) ]+$"))
+                {
+                    dial.Number();
+                }
+                else
+                {
+                    dial.Client(to);
+                }
+                 response.Dial(dial);
+            }
+            else
+            {
+                response.Say("Thanks for calling!");
+            }
             return Content(response.ToString(), "text/xml");
-
-
         }
+
+
+        // public void textCallee()
+           //{
+           //}
+
+        // public void findCallee()
+        // {
+        //In seperate method create one with view
+        //That will have an index of people to contact via text
+        //Also where text responses will be logged into times to 
+        //Reach the person 
+        //This will also log time/day Callee wants to be contacted and call at 
+        //that time, will still log demeanor 
+        // }
 
         protected override void Dispose(bool disposing)
         {
@@ -177,6 +187,8 @@ namespace Fundraising_Capstone2.Controllers
             }
             base.Dispose(disposing);
         }
+
+
 
 
         //public ActionResult Index(string to)

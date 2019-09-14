@@ -22,31 +22,31 @@ namespace Fundraising_Capstone2.Models
 
         public List<Campaign> Campaigns { get; set; }
 
-        public Decimal totalWeeklyFunds { get; set; }
+        //public Decimal totalWeeklyFunds { get; set; }
 
-        public Decimal totalMonthlyFunds { get; set; }
+        //public Decimal totalMonthlyFunds { get; set; }
 
-        public Decimal totalQuarterlyFunds { get; set; }
+        //public Decimal totalQuarterlyFunds { get; set; }
 
-        public Decimal totalYearlyFunds { get; set; }
+        //public Decimal totalYearlyFunds { get; set; }
 
-        public Decimal weeklyCampaignFunds { get; set; }
+        //public Decimal weeklyCampaignFunds { get; set; }
 
-        public Decimal totalDailyFunds { get; set; }
+        //public Decimal totalDailyFunds { get; set; }
 
-        public Decimal dailyCampaignFunds { get; set; }
+        //public Decimal dailyCampaignFunds { get; set; }
 
-        public Decimal dailyEmployeeFunds { get; set; }
+        //public Decimal dailyEmployeeFunds { get; set; }
 
-        public Decimal weeklyEmployeeFunds { get; set; }
+        //public Decimal weeklyEmployeeFunds { get; set; }
 
-        public Decimal weeklyFunds { get; set; }
+        //public Decimal weeklyFunds { get; set; }
 
-        public Decimal monthlyFunds { get; set; }
+        //public Decimal monthlyFunds { get; set; }
 
-        public Decimal quarterlyFunds { get; set; }
+        //public Decimal quarterlyFunds { get; set; }
 
-        public Decimal yearlyFunds { get; set; }
+        //public Decimal yearlyFunds { get; set; }
 
         //figure out how to represent visual data 
 
