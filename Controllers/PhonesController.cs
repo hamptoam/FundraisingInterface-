@@ -47,12 +47,9 @@ namespace Fundraising_Capstone2.Controllers
                 catch
                 {
                     return View();
-
                 }
             }
         }
-
-
         // GET: Phones/Details/5
         public ActionResult Details(int? CalleeId)
         {
@@ -73,7 +70,6 @@ namespace Fundraising_Capstone2.Controllers
                     return HttpNotFound();
                 }
                 return View(callee);
-
             }
         }
 
@@ -138,12 +134,12 @@ namespace Fundraising_Capstone2.Controllers
             {
                 return new Twilio.AspNet.Mvc.HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Phone phone = db.Phones.Find(id);
-            if (phone == null)
+            Callee callee = db.Callees.Find(id);
+            if (callee == null)
             {
                 return HttpNotFound();
             }
-            return View(phone);
+            return View(callee);
         }
 
         // POST: Phones/Delete/5
@@ -151,8 +147,8 @@ namespace Fundraising_Capstone2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Phone phone = db.Phones.Find(id);
-            db.Phones.Remove(phone);
+           Callee callee = db.Callees.Find(id);
+            db.Callees.Remove(callee);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

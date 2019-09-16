@@ -12,6 +12,12 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.CalleeId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phoneNumber)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.firstName)
         </th>
         <th>
@@ -21,37 +27,126 @@
             @Html.DisplayNameFor(model => model.Address)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.State)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.zipCode)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.callCount)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.answerCount)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.giftDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.callHistory)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.givingHistory)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lastCallDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lastCallTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nextCallDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nextCallTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.response)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.calleeDemeanor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isInterested)
+        </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.firstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.lastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Address)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.callCount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.answerCount)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.phoneNumber }) |
-            @Html.ActionLink("Details", "Details", new { id=item.phoneNumber }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.phoneNumber })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.CalleeId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.phoneNumber)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.firstName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.lastName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Address)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.City)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.State)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.zipCode)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.callCount)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.answerCount)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.gift)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.giftDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.callHistory)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.givingHistory)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.lastCallDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.lastCallTime)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.nextCallDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.nextCallTime)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.response)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.calleeDemeanor)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.isInterested)
+    </td>
+
+    <td>
+        @Html.ActionLink("Dial", "Dial", new { id = item.CalleeId })
+        @Html.ActionLink("Edit", "Edit", new { id = item.CalleeId }) |
+        @Html.ActionLink("Details", "Details", new { id = item.CalleeId }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.CalleeId })
+    </td>
+</tr>
 }
 
 </table>

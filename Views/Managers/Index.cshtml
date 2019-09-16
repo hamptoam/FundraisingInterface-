@@ -18,45 +18,6 @@
         <th>
             @Html.DisplayNameFor(model => model.lastName)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.totalWeeklyFunds)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.totalMonthlyFunds)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.totalQuarterlyFunds)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.totalYearlyFunds)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.weeklyCampaignFunds)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.totalDailyFunds)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.dailyCampaignFunds)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.dailyEmployeeFunds)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.weeklyEmployeeFunds)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.weeklyFunds)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.monthlyFunds)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.quarterlyFunds)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.yearlyFunds)
-        </th>
         <th></th>
     </tr>
 
@@ -69,52 +30,11 @@
             @Html.DisplayFor(modelItem => item.lastName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.totalWeeklyFunds)
+            @Html.ActionLink("Edit", "Edit", new { id=item.ManagerId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ManagerId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ManagerId })
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.totalMonthlyFunds)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.totalQuarterlyFunds)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.totalYearlyFunds)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.weeklyCampaignFunds)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.totalDailyFunds)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.dailyCampaignFunds)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.dailyEmployeeFunds)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.weeklyEmployeeFunds)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.weeklyFunds)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.monthlyFunds)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.quarterlyFunds)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.yearlyFunds)
-        </td>
-
         </tr>
-        @*<td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-        </tr>*@
     }
 }
 

@@ -29,7 +29,9 @@ namespace Fundraising_Capstone2.Models
 
         public int callCount { get; set; }
 
-        public int answerCount { get; set; } 
+        public int answerCount { get; set; }
+        
+        public decimal gift { get; set; }
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0: yyyy-MM-dd", ApplyFormatInEditMode = true)]
