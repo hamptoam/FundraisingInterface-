@@ -25,19 +25,22 @@ namespace Fundraising_Capstone2.Controllers
         public object Callee { get; private set; }
 
         // GET: Phones
-        public ActionResult Index(string to)
+        public ActionResult Index() //get
         {
-            ////// string to = this.Callee.phoneNumber.ToString(); 
+            using (ApplicationDbContext context = new ApplicationDbContext())
+            {
+                try
+                {
+                    var callees = db.Callees.ToList();
 
-            ////var response = new VoiceResponse();
-            ////response.Dial(to);
-            ////response.Say("Goodbye");
+                    return View(callees);
+                }
+                catch
+                {
+                    return View();
 
-            ////Console.WriteLine(response.ToString());
-
-            return View(); //db.Phones.ToList()
-
-
+                }
+            }
         }
 
 
@@ -135,7 +138,8 @@ namespace Fundraising_Capstone2.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-        [HttpPost]
+
+        [HttpGet]
         public ActionResult Dial(string to)
         {
             TwilioWrapperClient test = new TwilioWrapperClient(APIKeys.SID, APIKeys.AuthToken);
@@ -151,6 +155,7 @@ namespace Fundraising_Capstone2.Controllers
 
         }
 
+        [HttpGet]
         public ActionResult Text()
         {
            var texteeList = db.Callees.ToList(); 

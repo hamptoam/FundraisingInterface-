@@ -1,37 +1,25 @@
-﻿@model List<Fundraising_Capstone2.Models.Phone>
+﻿@model List<Fundraising_Capstone2.Models.Callee>
 
 @{
-    Layout = "~/Views/Shared/_EmployeeLayout.cshtml";
+    ViewBag.Title = "Callees";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
+<h2> Callees </h2>
 <body>
     <p>
         @Html.ActionLink("Create New", "Create")
-        <a href="~/Views/Phones/Index.cshtml">~/Views/Phones/Index.cshtml</a>
+ 
     </p>
-    <table class="table">
-        <tr>
-            <th></th>
-        </tr>
-
-        @*@foreach (var item in Model)
+        @foreach (var item in Model)
         {
             <tr>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CalleeId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.CalleeId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.CalleeId })
                 </td>
             </tr>
-        }*@
-
+        }
     </table>
 </body>
 </html>

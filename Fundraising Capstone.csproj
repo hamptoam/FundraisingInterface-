@@ -236,13 +236,12 @@
     <Reference Include="Twilio.AspNet.Mvc, Version=5.20.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\Twilio.AspNet.Mvc.5.20.1\lib\net451\Twilio.AspNet.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="WebGrease">
-      <Private>True</Private>
-      <HintPath>packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
-    </Reference>
     <Reference Include="Antlr3.Runtime">
       <Private>True</Private>
       <HintPath>packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
     </Reference>
     <Reference Include="Wikiled.Google.Chart, Version=1.0.19.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\Wikiled.Google.Chart.1.0.19\lib\netstandard2.0\Wikiled.Google.Chart.dll</HintPath>
@@ -295,6 +294,10 @@
     <Compile Include="Migrations\201909152331556_UpdatedDbContext.Designer.cs">
       <DependentUpon>201909152331556_UpdatedDbContext.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909161409111_reseededdatabase.cs" />
+    <Compile Include="Migrations\201909161409111_reseededdatabase.Designer.cs">
+      <DependentUpon>201909161409111_reseededdatabase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Callee.cs" />
@@ -326,11 +329,18 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <None Include=".bin\node.cmd" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
     <Content Include="Scripts\bootstrap.min.js.map" />
     <Content Include="Scripts\bootstrap.js.map" />
     <Content Include="Scripts\bootstrap.bundle.min.js.map" />
@@ -341,14 +351,6 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
-    <Content Include="Scripts\esm\popper-utils.js" />
-    <Content Include="Scripts\esm\popper-utils.min.js" />
-    <Content Include="Scripts\esm\popper.js" />
-    <Content Include="Scripts\esm\popper.min.js" />
-    <Content Include="Scripts\esm\popper.min.js.map" />
-    <Content Include="Scripts\esm\popper.js.map" />
-    <Content Include="Scripts\esm\popper-utils.min.js.map" />
-    <Content Include="Scripts\esm\popper-utils.js.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -361,7 +363,6 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
@@ -380,6 +381,7 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <None Include="Scripts\_References.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\quickstart.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -443,6 +445,7 @@
     <Content Include="Views\Phones\Edit.cshtml" />
     <Content Include="Views\Phones\Index.cshtml" />
     <Content Include="Views\Phones\Dial.cshtml" />
+    <Content Include="Views\Phones\Text.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -454,15 +457,18 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="Scripts\index.d.ts" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Migrations\201909152323270_rearrangeddatabase.resx">
       <DependentUpon>201909152323270_rearrangeddatabase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909152331556_UpdatedDbContext.resx">
       <DependentUpon>201909152331556_UpdatedDbContext.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909161409111_reseededdatabase.resx">
+      <DependentUpon>201909161409111_reseededdatabase.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
