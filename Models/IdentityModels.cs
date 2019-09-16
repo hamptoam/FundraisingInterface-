@@ -28,6 +28,8 @@ namespace Fundraising_Capstone2.Models
 
         public DbSet<Campaign> Campaigns { get; set; }
 
+        public DbSet<Funds> Funds { get; set; }
+
         public DbSet<CalleeCampaign> CalleeCampaigns { get; set; }
 
         public DbSet<CampaignEmployee> CampaignEmployees { get; set; }
@@ -38,9 +40,11 @@ namespace Fundraising_Capstone2.Models
 
         public DbSet<ManagerEmployee> ManagerEmployees { get; set; }
 
+        public DbSet<CalleeFunds> CalleeFunds { get; set; }
 
+        public DbSet<CampaignFunds> CampaignFunds { get; set; }
 
-
+        public DbSet<EmployeeFunds> EmployeeFunds { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

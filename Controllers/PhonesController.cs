@@ -11,7 +11,9 @@ using System.Web.Mvc;
 using Fundraising_Capstone2.API;
 using Fundraising_Capstone2.Keys;
 using Fundraising_Capstone2.Models;
+using Twilio;
 using Twilio.TwiML;
+using Twilio.AspNet.Mvc;
 using Twilio.TwiML.Voice;
 
 namespace Fundraising_Capstone2.Controllers
@@ -25,13 +27,13 @@ namespace Fundraising_Capstone2.Controllers
         // GET: Phones
         public ActionResult Index(string to)
         {
-            // string to = this.Callee.phoneNumber.ToString(); 
-       
-            var response = new VoiceResponse();
-            response.Dial(to);
-            response.Say("Goodbye");
+            ////// string to = this.Callee.phoneNumber.ToString(); 
 
-            Console.WriteLine(response.ToString());
+            ////var response = new VoiceResponse();
+            ////response.Dial(to);
+            ////response.Say("Goodbye");
+
+            ////Console.WriteLine(response.ToString());
 
             return View(); //db.Phones.ToList()
 
@@ -44,7 +46,7 @@ namespace Fundraising_Capstone2.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return new Twilio.AspNet.Mvc.HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Phone phone = db.Phones.Find(id);
             if (phone == null)
@@ -82,7 +84,7 @@ namespace Fundraising_Capstone2.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return new Twilio.AspNet.Mvc.HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Phone phone = db.Phones.Find(id);
             if (phone == null)
@@ -113,7 +115,7 @@ namespace Fundraising_Capstone2.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return new Twilio.AspNet.Mvc.HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Phone phone = db.Phones.Find(id);
             if (phone == null)
@@ -138,36 +140,34 @@ namespace Fundraising_Capstone2.Controllers
         {
             TwilioWrapperClient test = new TwilioWrapperClient(APIKeys.SID, APIKeys.AuthToken);
 
+            var calleeList = db.Callees.ToList();
 
-            var callerId = ConfigurationManager.AppSettings["TwilioCallerId"];
+            foreach (Callee c in calleeList)
+            {
+               test.CallAsync("414-310-7982", c.phoneNumber, "Test");
+            }
 
-            var response = new VoiceResponse();
-            if (!string.IsNullOrEmpty(to))
-            {
-                var dial = new Dial(callerId: callerId);
-                // wrap the phone number or client name in the appropriate TwiML verb
-                ////////    // by checking if the number given has only digits and format symbols
-                if (Regex.IsMatch(to, "^[\\d\\+\\-\\(\\) ]+$"))
-                {
-                    dial.Number();
-                }
-                else
-                {
-                    dial.Client(to);
-                }
-                 response.Dial(dial);
-            }
-            else
-            {
-                response.Say("Thanks for calling!");
-            }
-            return Content(response.ToString(), "text/xml");
+            return View();
+
         }
 
+        public ActionResult Text()
+        {
+           var texteeList = db.Callees.ToList(); 
+
+           foreach (Callee c in texteeList)
+           {
+                TwilioWrapperClient test = new TwilioWrapperClient(APIKeys.SID, APIKeys.AuthToken);
+
+                test.SendSmsAsync("414-310-7982", c.phoneNumber, "Test");
+           }
+
+            return View();
+        }
 
         // public void textCallee()
-           //{
-           //}
+        //{
+        //}
 
         // public void findCallee()
         // {
@@ -187,9 +187,6 @@ namespace Fundraising_Capstone2.Controllers
             }
             base.Dispose(disposing);
         }
-
-
-
 
         //public ActionResult Index(string to)
         //{

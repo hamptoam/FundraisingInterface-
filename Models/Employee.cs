@@ -11,7 +11,6 @@ namespace Fundraising_Capstone2.Models
     {
         public Employee()
         {
-
             this.Campaigns = new HashSet<Campaign>();
         }
 
@@ -31,8 +30,9 @@ namespace Fundraising_Capstone2.Models
 
         public Callee callee { get; set; }
 
-
-
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd]", ApplyFormatInEditMode = true)]
+        public DateTime HireDate;
 
         public virtual ICollection<Campaign> Campaigns { get; set; }
 

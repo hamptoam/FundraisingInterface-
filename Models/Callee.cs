@@ -28,24 +28,34 @@ namespace Fundraising_Capstone2.Models
 
         public int callCount { get; set; }
 
-        public int answerCount { get; set; }
+        public int answerCount { get; set; } 
 
-        public List<Callee> callees { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0: yyyy-MM-dd", ApplyFormatInEditMode = true)]
+        public string giftDate { get; set; }
 
         public List<string> callHistory { get; set; }
 
         public List<string> givingHistory { get; set; }
 
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? lastCallDate { get; set; }
 
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0: yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? lastCallTime { get; set; }
 
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0: yyyy-MM-dd", ApplyFormatInEditMode = true)]
         public DateTime? nextCallDate { get; set; }
 
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0: yyyy-MM-dd", ApplyFormatInEditMode = true)]
         public DateTime? nextCallTime { get; set; }
 
         public string calleeDemeanor { get; set; }
-
         public bool isInterested { get; set; }
 
     }

@@ -21,5 +21,4 @@ namespace Fundraising_Capstone2.Models
         public int CampaignId { get; set; }
         public Campaign Campaign { get; set; }
     }
-
 }
