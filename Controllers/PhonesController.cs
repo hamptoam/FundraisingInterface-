@@ -15,6 +15,7 @@ using Twilio;
 using Twilio.TwiML;
 using Twilio.AspNet.Mvc;
 using Twilio.TwiML.Voice;
+using Twilio.Rest.Api.V2010.Account;
 
 namespace Fundraising_Capstone2.Controllers
 {
@@ -64,7 +65,7 @@ namespace Fundraising_Capstone2.Controllers
                 .Include("CalleeCampaign").Select(cp => cp)
                 .Include("CalleeFunds").Select(fu => fu)
                 .FirstOrDefault(co => co.CalleeId == CalleeId);
-            
+
                 if (Callee == null)
                 {
                     return HttpNotFound();
@@ -95,7 +96,6 @@ namespace Fundraising_Capstone2.Controllers
 
             return View(callee);
         }
-
         // GET: Phones/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -110,7 +110,6 @@ namespace Fundraising_Capstone2.Controllers
             }
             return View(phone);
         }
-
         // POST: Phones/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -126,7 +125,6 @@ namespace Fundraising_Capstone2.Controllers
             }
             return View(callee);
         }
-
         // GET: Phones/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -147,7 +145,7 @@ namespace Fundraising_Capstone2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-           Callee callee = db.Callees.Find(id);
+            Callee callee = db.Callees.Find(id);
             db.Callees.Remove(callee);
             db.SaveChanges();
             return RedirectToAction("Index");
@@ -172,53 +170,39 @@ namespace Fundraising_Capstone2.Controllers
         [HttpGet]
         public ActionResult Text()
         {
-            var texteeList = db.Callees.ToList();
 
-            foreach (Callee c in texteeList)
-            {
-                TwilioWrapperClient test = new TwilioWrapperClient(APIKeys.SID, APIKeys.AuthToken);
+            Console.WriteLine("Enter text here");
+            string body = Console.ReadLine();
 
-                test.SendSmsAsync("414-310-7982", c.phoneNumber, "Test");
-            }
+            TwilioClient.Init(APIKeys.sID, APIKeys.authToken);
+
+            var message = MessageResource.Create(
+                body: "",
+                from: new Twilio.Types.PhoneNumber("+14143107982"),
+                to: new Twilio.Types.PhoneNumber(this.Callee.phoneNumber)
+            ); ;
+
+            Console.WriteLine(message.Sid);
 
             return View();
-
-
-       
-            //static void Main(string[] args)
-            //{
-            //    // Find your Account Sid and Token at twilio.com/console
-            //    // DANGER! This is insecure. See http://twil.io/secure
-            //    const string accountSid = "ACad990750b705f73b388ec579ef0a82ba";
-            //    const string authToken = "your_auth_token";
-
-            //    TwilioClient.Init(accountSid, authToken);
-
-            //    var message = MessageResource.Create(
-            //        body: "Join Earth's mightiest heroes. Like Kevin Bacon.",
-            //        from: new Twilio.Types.PhoneNumber("+15017122661"),
-            //        to: new Twilio.Types.PhoneNumber("+15558675310")
-            //    );
-
-            //    Console.WriteLine(message.Sid);
         }
 
-        
-    
-
-        // public void textCallee()
+        //static void Main(string[] args)
         //{
-        //}
+        //    // Find your Account Sid and Token at twilio.com/console
+        //    // DANGER! This is insecure. See http://twil.io/secure
+        //    const string accountSid = "ACad990750b705f73b388ec579ef0a82ba";
+        //    const string authToken = "your_auth_token";
 
-        // public void findCallee()
-        // {
-        //In seperate method create one with view
-        //That will have an index of people to contact via text
-        //Also where text responses will be logged into times to 
-        //Reach the person 
-        //This will also log time/day Callee wants to be contacted and call at 
-        //that time, will still log demeanor 
-        // }
+        //    TwilioClient.Init(accountSid, authToken);
+
+        //    var message = MessageResource.Create(
+        //        body: "Join Earth's mightiest heroes. Like Kevin Bacon.",
+        //        from: new Twilio.Types.PhoneNumber("+15017122661"),
+        //        to: new Twilio.Types.PhoneNumber("+15558675310")
+        //    );
+
+        //    Console.WriteLine(message.Sid);
 
         protected override void Dispose(bool disposing)
         {
@@ -228,32 +212,8 @@ namespace Fundraising_Capstone2.Controllers
             }
             base.Dispose(disposing);
         }
-
-        //public ActionResult Index(string to)
-        //{
-        //    var response = new VoiceResponse();
-        //    response.Say("Thanks for calling!");
-
-        //    Execute();
-        //    return Content(response.ToString(), "text/xml");
-        //}
-
-
-
-        //public void Conference()
-        //{
-        //    var response = new VoiceResponse();
-        //    var dial = new Dial();
-        //    dial.Conference("miderated-conference-room",
-        //    startConferenceOnEnter: false);
-        //    response.Append(dial);
-
-        //    Console.WriteLine(response.ToString());
-
-        //   {
-        //        return Content(result.RestException.Message);
-        //    }
-
-        //  //  return Content("The call has been initiated");
     }
 }
+       
+    
+
