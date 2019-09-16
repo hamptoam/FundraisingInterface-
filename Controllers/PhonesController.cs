@@ -155,54 +155,25 @@ namespace Fundraising_Capstone2.Controllers
         public ActionResult Dial(string to)
         {
             TwilioWrapperClient test = new TwilioWrapperClient(APIKeys.SID, APIKeys.AuthToken);
+            test.CallAsync("414-310-7982", this.Callee.phoneNumber, "Goodbye");
 
-            var calleeList = db.Callees.ToList();
-
-            foreach (Callee c in calleeList)
-            {
-                test.CallAsync("414-310-7982", c.phoneNumber, "Test");
-            }
 
             return View();
 
         }
-
+   
         [HttpGet]
         public ActionResult Text()
         {
+            TwilioWrapperClient sms = new TwilioWrapperClient(APIKeys.SID, APIKeys.AuthToken);
 
-            Console.WriteLine("Enter text here");
-            string body = Console.ReadLine();
+            Console.WriteLine("Endter text here");
+            string employeeInput = Console.ReadLine();
 
-            TwilioClient.Init(APIKeys.sID, APIKeys.authToken);
-
-            var message = MessageResource.Create(
-                body: "",
-                from: new Twilio.Types.PhoneNumber("+14143107982"),
-                to: new Twilio.Types.PhoneNumber(this.Callee.phoneNumber)
-            ); ;
-
-            Console.WriteLine(message.Sid);
+            sms.SendSmsAsync("414-310-7982", this.Callee.phoneNumber, employeeInput);
 
             return View();
         }
-
-        //static void Main(string[] args)
-        //{
-        //    // Find your Account Sid and Token at twilio.com/console
-        //    // DANGER! This is insecure. See http://twil.io/secure
-        //    const string accountSid = "ACad990750b705f73b388ec579ef0a82ba";
-        //    const string authToken = "your_auth_token";
-
-        //    TwilioClient.Init(accountSid, authToken);
-
-        //    var message = MessageResource.Create(
-        //        body: "Join Earth's mightiest heroes. Like Kevin Bacon.",
-        //        from: new Twilio.Types.PhoneNumber("+15017122661"),
-        //        to: new Twilio.Types.PhoneNumber("+15558675310")
-        //    );
-
-        //    Console.WriteLine(message.Sid);
 
         protected override void Dispose(bool disposing)
         {
