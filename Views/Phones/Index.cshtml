@@ -14,6 +14,8 @@
         {
             <tr>
                 <td>
+                    @Html.ActionLink("Text", "Text", new { id = item.CalleeId })
+                    @Html.ActionLink("Call" "Call", new { id = item.CalleeId})
                     @Html.ActionLink("Edit", "Edit", new { id = item.CalleeId }) |
                     @Html.ActionLink("Details", "Details", new { id = item.CalleeId }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.CalleeId })

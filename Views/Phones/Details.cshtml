@@ -9,79 +9,87 @@
 
 <div>
     <h4>Callees</h4>
-    <hr/>
-        <dt>
-            @Html.DisplayNameFor(model => model.CalleeId)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.CalleeId)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.firstName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.firstName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.lastName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.lastName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-        <dd>
-            @Html.DisplayNameFor(model => model.City)
-        </dd>
-        <dt>
-            @Html.DisplayFor(model => model.City)
-        </dt>
-        <dd>
-            @Html.DisplayNameFor(model => model.State)
-        </dd>
-        <dt>
-            @Html.DisplayFor(model => model.State)
-        </dt>
-        <dd>
-            @Html.DisplayNameFor(model => model.zipCode)
-        </dd>
-        <dt>
-            @Html.DisplayFor(model => model.zipCode)
-        </dt>
-        <dt>
-            @Html.DisplayNameFor(model => model.callCount)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.callCount)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.answerCount)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.answerCount)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.giftDate)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.callHistory)
-        </dd>
-        <dt>
-            @Html.DisplayFor(model => model.callHistory)
-        </dt>
-        <dd>
-            @Html.DisplayNameFor(model => model.givingHistory)
-        </dd>
-        <dt>
-            @Html.DisplayFor(model => model.givingHistory)
-        </dt>
+    <hr />
+    <dt>
+        @Html.DisplayNameFor(model => model.CalleeId)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.CalleeId)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.firstName)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.firstName)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.lastName)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.lastName)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Address)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Address)
+    </dd>
+    <dd>
+        @Html.DisplayNameFor(model => model.City)
+    </dd>
+    <dt>
+        @Html.DisplayFor(model => model.City)
+    </dt>
+    <dd>
+        @Html.DisplayNameFor(model => model.State)
+    </dd>
+    <dt>
+        @Html.DisplayFor(model => model.State)
+    </dt>
+    <dd>
+        @Html.DisplayNameFor(model => model.zipCode)
+    </dd>
+    <dt>
+        @Html.DisplayFor(model => model.zipCode)
+    </dt>
+    <dd>
+        @Html.DisplayNameFor(model => model.CalleeCampaign)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.CalleeCampaign)
+    </dt>
+    <dt>
+        @Html.DisplayNameFor(model => model.callCount)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.callCount)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.answerCount)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.answerCount)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.giftDate)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.callHistory)
+    </dd>
+    <dt>
+        @Html.DisplayFor(model => model.callHistory)
+    </dt>
+    <dd>
+        @Html.DisplayNameFor(model => model.givingHistory)
+    </dd>
+    <dt>
+        @Html.DisplayFor(model => model.givingHistory)
+    </dt>
 </div>
 }
 <p>
+    @Html.ActionLink("Text", "Text",  new { id = Model.CalleeId })
+    @Html.ActionLink("Dial", "Dial", new { id = Model.CalleeId })
     @Html.ActionLink("Edit", "Edit", new { id = Model.CalleeId })
     @Html.ActionLink("Back to List", "Index")
 </p>
