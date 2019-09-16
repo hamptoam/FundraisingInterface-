@@ -22,7 +22,16 @@ namespace Fundraising_Capstone2.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        public object Callee { get; private set; }
+        public Callee Callee { get; set; }
+
+        public Funds Funds { get; set; }
+
+        public Campaign Campaign { get; set; }
+
+        public CalleeFunds CalleeFunds { get; set; }
+
+        public CalleeCampaign CalleeCampaign { get; set; }
+
 
         // GET: Phones
         public ActionResult Index() //get
@@ -45,18 +54,27 @@ namespace Fundraising_Capstone2.Controllers
 
 
         // GET: Phones/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int? CalleeId)
         {
-            if (id == null)
+            if (CalleeId == null)
             {
                 return new Twilio.AspNet.Mvc.HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Phone phone = db.Phones.Find(id);
-            if (phone == null)
+
+            using (ApplicationDbContext context = new ApplicationDbContext())
             {
-                return HttpNotFound();
+                Callee callee = db.Callees
+                .Include("CalleeCampaign").Select(cp => cp)
+                .Include("CalleeFunds").Select(fu => fu)
+                .FirstOrDefault(co => co.CalleeId == CalleeId);
+            
+                if (Callee == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(callee);
+
             }
-            return View(phone);
         }
 
         // GET: Phones/Create
@@ -70,16 +88,16 @@ namespace Fundraising_Capstone2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id")] Phone phone)
+        public ActionResult Create([Bind(Include = "Id")] Callee callee)
         {
             if (ModelState.IsValid)
             {
-                db.Phones.Add(phone);
+                db.Callees.Add(callee);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(phone);
+            return View(callee);
         }
 
         // GET: Phones/Edit/5
@@ -102,15 +120,15 @@ namespace Fundraising_Capstone2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id")] Phone phone)
+        public ActionResult Edit([Bind(Include = "Id")] Callee callee)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(phone).State = EntityState.Modified;
+                db.Entry(callee).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(phone);
+            return View(callee);
         }
 
         // GET: Phones/Delete/5
@@ -148,7 +166,7 @@ namespace Fundraising_Capstone2.Controllers
 
             foreach (Callee c in calleeList)
             {
-               test.CallAsync("414-310-7982", c.phoneNumber, "Test");
+                test.CallAsync("414-310-7982", c.phoneNumber, "Test");
             }
 
             return View();
@@ -158,17 +176,39 @@ namespace Fundraising_Capstone2.Controllers
         [HttpGet]
         public ActionResult Text()
         {
-           var texteeList = db.Callees.ToList(); 
+            var texteeList = db.Callees.ToList();
 
-           foreach (Callee c in texteeList)
-           {
+            foreach (Callee c in texteeList)
+            {
                 TwilioWrapperClient test = new TwilioWrapperClient(APIKeys.SID, APIKeys.AuthToken);
 
                 test.SendSmsAsync("414-310-7982", c.phoneNumber, "Test");
-           }
+            }
 
             return View();
+
+
+       
+            //static void Main(string[] args)
+            //{
+            //    // Find your Account Sid and Token at twilio.com/console
+            //    // DANGER! This is insecure. See http://twil.io/secure
+            //    const string accountSid = "ACad990750b705f73b388ec579ef0a82ba";
+            //    const string authToken = "your_auth_token";
+
+            //    TwilioClient.Init(accountSid, authToken);
+
+            //    var message = MessageResource.Create(
+            //        body: "Join Earth's mightiest heroes. Like Kevin Bacon.",
+            //        from: new Twilio.Types.PhoneNumber("+15017122661"),
+            //        to: new Twilio.Types.PhoneNumber("+15558675310")
+            //    );
+
+            //    Console.WriteLine(message.Sid);
         }
+
+        
+    
 
         // public void textCallee()
         //{
