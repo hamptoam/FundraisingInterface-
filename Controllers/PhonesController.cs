@@ -159,7 +159,6 @@ namespace Fundraising_Capstone2.Controllers
 
 
             return View();
-
         }
         [HttpGet]
         public void setTime()
@@ -295,7 +294,46 @@ namespace Fundraising_Capstone2.Controllers
                 };
             ViewBag(minuteToCall);
         }
-    
+
+        //public ActionResult Text(Text Text, int CalleeId)
+        //{
+
+        //    // grab calle from id
+        //    return RedirectToAction("SendTextAsync", "Texts");
+        //}
+
+        [HttpPost]
+        public async System.Threading.Tasks.Task<ActionResult> SendTextAsync()
+        {
+            TwilioWrapperClient sms = new TwilioWrapperClient(APIKeys.SID, APIKeys.AuthToken);
+
+           // await sms.SendSmsAsync("414-310-7982", this.Callee.phoneNumber, outgoingText);
+
+            if (this.Callee.hasResponse)
+            {
+                //Console.WriteLine(Respose);
+                //Console.WriteLine("Is callee interested");
+                //string Input = Console.ReadLine();
+                //if (Input == "Yes")
+                //{
+                //    Callee.isInterested = true;
+                //}
+                //else if (Input == "No")
+                //    /       {
+                //    //            Callee.isInterested = false;
+                //    //        };
+                //    //    }
+                //    //    else
+                //    //    {
+                //    //        return View();
+                //    //    }
+
+                return View();
+            }
+            return View();
+
+        }
+
         [HttpGet]
         public ActionResult RecieveText()
         {

@@ -76,14 +76,13 @@
             <th></th>
         </tr>*@
 
-        @foreach (var item in Model)
-        {
+         @foreach (var item in Model)
+         {
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.CalleeId)
                 </td>
                 <td>
-  
                     @Html.DisplayFor(modelItem => item.phoneNumber)
                 </td>
                 <td>
@@ -146,16 +145,15 @@
 
                 <p>
                     @Html.ActionLink("Create New", "Create")
-
                 <td>
                     @Html.ActionLink("Text", "Text", new { id = item.CalleeId })
                     @Html.ActionLink("Dial", "Dial", new { id = item.CalleeId })
-                    @Html.ActionLink("Edit", "Edit", new { id = item.CalleeId }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.CalleeId }) |
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CalleeId }) 
+                    @Html.ActionLink("Details", "Details", new { id = item.CalleeId }) 
                     @Html.ActionLink("Delete", "Delete", new { id = item.CalleeId })
                 </td>
             </tr>
-        }
+         }
     </table>
 </body>
 </html>

@@ -19,10 +19,5 @@ namespace Fundraising_Capstone2.Models
         [ForeignKey("Funds")]
         public int FundId { get; set; }
         public Funds Funds { get; set; }
-
-
-
-
-
     }
 }

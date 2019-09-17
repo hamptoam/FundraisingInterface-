@@ -45,6 +45,8 @@ namespace Fundraising_Capstone2.Models
         public DbSet<CampaignFunds> CampaignFunds { get; set; }
 
         public DbSet<EmployeeFunds> EmployeeFunds { get; set; }
+
+        public DbSet<Fundraising_Capstone2.Models.Phone> Phones { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
@@ -55,8 +57,7 @@ namespace Fundraising_Capstone2.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<Fundraising_Capstone2.Models.Phone> Phones { get; set; }
+   
 
-        public System.Data.Entity.DbSet<Fundraising_Capstone2.Models.Text> Texts { get; set; }
     }
 }

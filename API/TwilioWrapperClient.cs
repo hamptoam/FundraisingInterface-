@@ -143,8 +143,6 @@ namespace Fundraising_Capstone2.API
 
                 SetMessage(call);
             }
-
-            
         }
     }
 }
