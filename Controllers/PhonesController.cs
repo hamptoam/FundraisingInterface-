@@ -61,12 +61,12 @@ namespace Fundraising_Capstone2.Controllers
 
             using (ApplicationDbContext context = new ApplicationDbContext())
             {
-                Callee callee = db.Callees
+                 Callee callee = db.Callees
                 .Include("CalleeCampaign").Select(cp => cp)
                 .Include("CalleeFunds").Select(fu => fu)
                 .FirstOrDefault(co => co.CalleeId == CalleeId);
 
-                if (Callee == null)
+                if (callee == null)
                 {
                     return HttpNotFound();
                 }
@@ -115,15 +115,15 @@ namespace Fundraising_Capstone2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id")] Callee callee)
+        public ActionResult Edit([Bind(Include = "Id")]  Phone phone)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(callee).State = EntityState.Modified;
+                db.Entry(phone).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(callee);
+            return View(phone);
         }
         // GET: Phones/Delete/5
         public ActionResult Delete(int? id)
@@ -132,12 +132,12 @@ namespace Fundraising_Capstone2.Controllers
             {
                 return new Twilio.AspNet.Mvc.HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Callee callee = db.Callees.Find(id);
-            if (callee == null)
+            Phone phone = db.Phones.Find(id);
+            if (phone == null)
             {
                 return HttpNotFound();
             }
-            return View(callee);
+            return View(phone);
         }
 
         // POST: Phones/Delete/5
@@ -145,8 +145,8 @@ namespace Fundraising_Capstone2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Callee callee = db.Callees.Find(id);
-            db.Callees.Remove(callee);
+            Phone phone = db.Phones.Find(id);
+            db.Phones.Remove(phone);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -184,42 +184,56 @@ namespace Fundraising_Capstone2.Controllers
                 else if (Input == "No")
                 {
                     Callee.isInterested = false;
-                }
-                Console.WriteLine("Set day to call? Y or N");
-                string yOrN = Console.ReadLine();
-                if (Input == "Y")
+                };
+            }
+            else
+            {
+                return View();
+            }
+
+            return View();
+        }
+
+        [HttpGet]
+        public void setTime()
+        {
+            List<SelectListItem> dayToCall = new List<SelectListItem>()
                 {
-                    List<SelectListItem> dayToCall = new List<SelectListItem>()
-                {
                     new SelectListItem
                     {
-                        Text = "Monday", Value = "1"
+                        Text = "Monday",
+                        Value = "1"
                     },
                     new SelectListItem
                     {
-                        Text = "Tuesday", Value = "2"
+                        Text = "Tuesday",
+                        Value = "2"
                     },
                     new SelectListItem
                     {
-                        Text = "Wednesday", Value = "3"
+                        Text = "Wednesday",
+                        Value = "3"
                     },
                     new SelectListItem
                     {
-                        Text = "Thursday", Value = "4"
+                        Text = "Thursday",
+                        Value = "4"
                     },
                     new SelectListItem
                     {
-                        Text = "Friday", Value = "5"
+                        Text = "Friday",
+                        Value = "5"
                     },
                     new SelectListItem
                     {
-                        Text = "Saturday", Value = "6"
+                        Text = "Saturday",
+                        Value = "6"
                     },
 
                 };
-                    return View(dayToCall);
-                }
-                List<SelectListItem> hourToCall = new List<SelectListItem>()
+            ViewBag(dayToCall);
+
+            List<SelectListItem> hourToCall = new List<SelectListItem>()
                 {
                     new SelectListItem
                         {
@@ -257,65 +271,64 @@ namespace Fundraising_Capstone2.Controllers
                         {
                             Text = "5", Value = "5"
                         },
-                };
-                return View(hourToCall);
-            }
+                    };
+            ViewBag(hourToCall);
+
             List<SelectListItem> minuteToCall = new List<SelectListItem>()
                 {
-                    new SelectListItem
-                    {
-                            Text = "05", Value = "05"
-                    },
-                    new SelectListItem
-                    {
-                            Text = "10", Value = "5"
-                    },
-                    new SelectListItem
-                    {
-                            Text = "15", Value = "5"
-                    },
-                    new SelectListItem
-                    {
-                            Text = "20", Value = "5"
-                    },
-                    new SelectListItem
-                    {
-                            Text = "25", Value = "5"
-                    },
-                    new SelectListItem
-                    {
-                            Text = "30", Value = "5"
-                    },
-                    new SelectListItem
-                    {
-                            Text = "35", Value = "5"
-                    },
-                    new SelectListItem
-                    {
-                            Text = "40", Value = "5"
-                    },
-                    new SelectListItem
-                    {
-                            Text = "45", Value = "5"
-                    },
-                    new SelectListItem
-                    {
-                            Text = "50", Value = "5"
-                    },
-                    new SelectListItem
-                    {
-                            Text = "55", Value = "5"
-                    },
-                    new SelectListItem
-                    {
-                            Text = "00", Value = "5"
-                    },
+                new SelectListItem
+                {
+                    Text = "05", Value = "05"
+                },
+                new SelectListItem
+                {
+                    Text = "10", Value = "5"
+                },
+                new SelectListItem
+                {
+                    Text = "15", Value = "5"
+                },
+                new SelectListItem
+                {
+                    Text = "20", Value = "5"
+                },
+                new SelectListItem
+                {
+                    Text = "25", Value = "5"
+                },
+                new SelectListItem
+                {
+                    Text = "30", Value = "5"
+                },
+                new SelectListItem
+                {
+                    Text = "35", Value = "5"
+                },
+                new SelectListItem
+                {
+                    Text = "40", Value = "5"
+                },
+                new SelectListItem
+                {
+                    Text = "45", Value = "5"
+                },
+                new SelectListItem
+                {
+                    Text = "50", Value = "5"
+                },
+                new SelectListItem
+                {
+                    Text = "55", Value = "5"
+                },
+                new SelectListItem
+                {
+                    Text = "00", Value = "5"
+                },
 
                 };
-
-            return View(minuteToCall);
+            ViewBag(minuteToCall);
         }
-   
+    
         [HttpGet]
         public ActionResult RecieveText()
         {

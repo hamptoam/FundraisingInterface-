@@ -21,24 +21,30 @@ namespace Fundraising_Capstone2.Controllers
         }
 
         // GET: Callees/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int? CalleeId)
         {
-            if (id == null)
+            if (CalleeId == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Callee callee = db.Callees.Find(id);
-            if (callee == null)
+            using (ApplicationDbContext context = new ApplicationDbContext())
             {
-                return HttpNotFound();
+                Callee callee = db.Callees
+                .Include("CalleeCampaign").Select(cp => cp)
+                .Include("CalleeFunds").Select(fu => fu)
+                .FirstOrDefault(co => co.CalleeId == CalleeId);
+
+                if (callee == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(callee);
             }
-            return View(callee);
         }
 
         // GET: Callees/Create
         public ActionResult Create()
         {
-
             return View();
         }
 
@@ -47,7 +53,7 @@ namespace Fundraising_Capstone2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "phoneNumber,firstName,lastName,Address,callCount,answerCount")] Callee callee)
+        public ActionResult Create([Bind(Include = "phoneNumber,firstName,lastName,Address,City,zipCode")] Callee callee)
         {
             if (ModelState.IsValid)
             {
@@ -60,13 +66,13 @@ namespace Fundraising_Capstone2.Controllers
         }
 
         // GET: Callees/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int? CalleeId)
         {
-            if (id == null)
+            if (CalleeId == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Callee callee = db.Callees.Find(id);
+            Callee callee = db.Callees.Find(CalleeId);
             if (callee == null)
             {
                 return HttpNotFound();
@@ -79,7 +85,7 @@ namespace Fundraising_Capstone2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "phoneNumber,firstName,lastName,Address,callCount,answerCount")] Callee callee)
+        public ActionResult Edit([Bind(Include = "phoneNumber,firstName,lastName,Address,City,zipCode,isInterested,dayToCall,timeToCall")] Callee callee)
         {
             if (ModelState.IsValid)
             {
@@ -91,13 +97,13 @@ namespace Fundraising_Capstone2.Controllers
         }
 
         // GET: Callees/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int? CalleeId)
         {
-            if (id == null)
+            if (CalleeId == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Callee callee = db.Callees.Find(id);
+            Callee callee = db.Callees.Find(CalleeId);
             if (callee == null)
             {
                 return HttpNotFound();
@@ -108,9 +114,9 @@ namespace Fundraising_Capstone2.Controllers
         // POST: Callees/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int ? CalleeId)
         {
-            Callee callee = db.Callees.Find(id);
+            Callee callee = db.Callees.Find(CalleeId);
             db.Callees.Remove(callee);
             db.SaveChanges();
             return RedirectToAction("Index");
