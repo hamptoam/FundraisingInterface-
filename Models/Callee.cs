@@ -42,8 +42,6 @@ namespace Fundraising_Capstone2.Models
         public List<string> givingHistory { get; set; }
 
 
-
-
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? lastCallDate { get; set; }
@@ -60,6 +58,7 @@ namespace Fundraising_Capstone2.Models
         [DisplayFormat(DataFormatString = "{0: yyyy-MM-dd", ApplyFormatInEditMode = true)]
         public DateTime? nextCallTime { get; set; }
 
+        public bool hasResponse { get; set; }
         public IResponse response { get; set; }
         public string calleeDemeanor { get; set; }
         public bool isInterested { get; set; }

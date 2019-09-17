@@ -12,6 +12,7 @@ using Fundraising_Capstone2.Keys;
 using Twilio.TwiML;
 using Twilio.AspNet.Mvc;
 using Twilio.TwiML.Voice;
+using System.Web.Services.Description;
 
 namespace Fundraising_Capstone2.API
 {
@@ -120,6 +121,8 @@ namespace Fundraising_Capstone2.API
         {
             public static string V = APIKeys.sID;
             public bool CanUpdate { get { return true; } }
+
+            public bool hasResponse { get; set; }
 
             public string Status { get; set; }
 

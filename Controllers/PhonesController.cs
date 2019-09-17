@@ -161,16 +161,167 @@ namespace Fundraising_Capstone2.Controllers
             return View();
 
         }
-   
+
         [HttpGet]
         public ActionResult Text()
         {
             TwilioWrapperClient sms = new TwilioWrapperClient(APIKeys.SID, APIKeys.AuthToken);
 
-            Console.WriteLine("Endter text here");
+            Console.WriteLine("Enter Text Here: Short Description, Ask when a good time to call");
             string employeeInput = Console.ReadLine();
 
             sms.SendSmsAsync("414-310-7982", this.Callee.phoneNumber, employeeInput);
+
+            if (this.Callee.hasResponse)
+            {
+                Console.WriteLine(Response);
+                Console.WriteLine("Is callee interested");
+                string Input = Console.ReadLine();
+                if (Input == "Yes")
+                {
+                    Callee.isInterested = true;
+                }
+                else if (Input == "No")
+                {
+                    Callee.isInterested = false;
+                }
+                Console.WriteLine("Set day to call? Y or N");
+                string yOrN = Console.ReadLine();
+                if (Input == "Y")
+                {
+                    List<SelectListItem> dayToCall = new List<SelectListItem>()
+                {
+                    new SelectListItem
+                    {
+                        Text = "Monday", Value = "1"
+                    },
+                    new SelectListItem
+                    {
+                        Text = "Tuesday", Value = "2"
+                    },
+                    new SelectListItem
+                    {
+                        Text = "Wednesday", Value = "3"
+                    },
+                    new SelectListItem
+                    {
+                        Text = "Thursday", Value = "4"
+                    },
+                    new SelectListItem
+                    {
+                        Text = "Friday", Value = "5"
+                    },
+                    new SelectListItem
+                    {
+                        Text = "Saturday", Value = "6"
+                    },
+
+                };
+                    return View(dayToCall);
+                }
+                List<SelectListItem> hourToCall = new List<SelectListItem>()
+                {
+                    new SelectListItem
+                        {
+                            Text = "9", Value = "9"
+                        },
+                    new SelectListItem
+                        {
+                            Text = "10", Value = "10"
+                        },
+                    new SelectListItem
+                        {
+                            Text = "11", Value = "11"
+                        },
+                    new SelectListItem
+                        {
+                            Text = "12", Value = "12"
+                        },
+                    new SelectListItem
+                        {
+                            Text = "1", Value = "1"
+                        },
+                    new SelectListItem
+                        {
+                            Text = "2", Value = "2"
+                        },
+                    new SelectListItem
+                        {
+                            Text = "3", Value = "3"
+                        },
+                    new SelectListItem
+                        {
+                            Text = "4", Value = "4"
+                        },
+                    new SelectListItem
+                        {
+                            Text = "5", Value = "5"
+                        },
+                };
+                return View(hourToCall);
+            }
+            List<SelectListItem> minuteToCall = new List<SelectListItem>()
+                {
+                    new SelectListItem
+                    {
+                            Text = "05", Value = "05"
+                    },
+                    new SelectListItem
+                    {
+                            Text = "10", Value = "5"
+                    },
+                    new SelectListItem
+                    {
+                            Text = "15", Value = "5"
+                    },
+                    new SelectListItem
+                    {
+                            Text = "20", Value = "5"
+                    },
+                    new SelectListItem
+                    {
+                            Text = "25", Value = "5"
+                    },
+                    new SelectListItem
+                    {
+                            Text = "30", Value = "5"
+                    },
+                    new SelectListItem
+                    {
+                            Text = "35", Value = "5"
+                    },
+                    new SelectListItem
+                    {
+                            Text = "40", Value = "5"
+                    },
+                    new SelectListItem
+                    {
+                            Text = "45", Value = "5"
+                    },
+                    new SelectListItem
+                    {
+                            Text = "50", Value = "5"
+                    },
+                    new SelectListItem
+                    {
+                            Text = "55", Value = "5"
+                    },
+                    new SelectListItem
+                    {
+                            Text = "00", Value = "5"
+                    },
+
+                };
+
+            return View(minuteToCall);
+        }
+   
+        [HttpGet]
+        public ActionResult RecieveText()
+        {
+            TwilioWrapperClient rps = new TwilioWrapperClient(APIKeys.SID, APIKeys.AuthToken);
+
+            //this.Callee.response)
 
             return View();
         }
