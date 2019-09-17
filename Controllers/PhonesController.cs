@@ -161,39 +161,6 @@ namespace Fundraising_Capstone2.Controllers
             return View();
 
         }
-
-        [HttpGet]
-        public ActionResult Text()
-        {
-            TwilioWrapperClient sms = new TwilioWrapperClient(APIKeys.SID, APIKeys.AuthToken);
-
-            Console.WriteLine("Enter Text Here: Short Description, Ask when a good time to call");
-            string employeeInput = Console.ReadLine();
-
-            sms.SendSmsAsync("414-310-7982", this.Callee.phoneNumber, employeeInput);
-
-            if (this.Callee.hasResponse)
-            {
-                Console.WriteLine(Response);
-                Console.WriteLine("Is callee interested");
-                string Input = Console.ReadLine();
-                if (Input == "Yes")
-                {
-                    Callee.isInterested = true;
-                }
-                else if (Input == "No")
-                {
-                    Callee.isInterested = false;
-                };
-            }
-            else
-            {
-                return View();
-            }
-
-            return View();
-        }
-
         [HttpGet]
         public void setTime()
         {

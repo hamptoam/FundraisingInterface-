@@ -56,5 +56,7 @@ namespace Fundraising_Capstone2.Models
         }
 
         public System.Data.Entity.DbSet<Fundraising_Capstone2.Models.Phone> Phones { get; set; }
+
+        public System.Data.Entity.DbSet<Fundraising_Capstone2.Models.Text> Texts { get; set; }
     }
 }

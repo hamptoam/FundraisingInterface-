@@ -45,17 +45,17 @@ namespace Fundraising_Capstone2.API
             IsInitialized = true;
         }
 
-        public void Dial()
-        {
-            var response = new VoiceResponse();
-            var dial = new Dial(callerId: "414");
-            dial.Number("");
-            response.Append(dial);
+        //public void Dial()
+        //{
+        //    var response = new VoiceResponse();
+        //    var dial = new Dial(callerId: "414");
+        //    dial.Number("");
+        //    response.Append(dial);
 
-         //   CallAsync(pnFrom, pnTo, msg);
+        // //   CallAsync(pnFrom, pnTo, msg);
 
-            Console.WriteLine(response.ToString());
-        }
+        //    Console.WriteLine(response.ToString());
+        //}
 
         public async Task<IResponse> CallAsync(string from, string to, string msg)
         {
@@ -71,7 +71,7 @@ namespace Fundraising_Capstone2.API
 
             return new CallResponse(call);
 
-}
+        }
 
         public async Task<IResponse> SendSmsAsync(string from, string to, string msg)
         {

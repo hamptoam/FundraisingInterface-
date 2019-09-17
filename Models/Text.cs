@@ -14,6 +14,8 @@ namespace Fundraising_Capstone2.Models
 
         public Employee Employee { get; set; }
 
+        public string outgoingText { get; set; }
+
         public IResponse Response { get; set; }
 
     }

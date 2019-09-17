@@ -18,13 +18,8 @@ namespace Fundraising_Capstone2.Models
 
         [Key]
         public int CampaignId { get; set; }
-
-        public virtual ICollection<Callee> Leads { get; set; }
-
-
-    
-       // public List<Employee> assignedCallers { get; set; }
-        public List<Employee> employees { get; set; }
+ 
+       // public List<Employee> assignedCallers { get; set; 
         public virtual ICollection<Employee> Employees { get; set; }
 
         [DataType(DataType.Date)]
@@ -34,8 +29,6 @@ namespace Fundraising_Capstone2.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0: yyyy-MM-dd", ApplyFormatInEditMode = true)]
         public string campaignEndDate { get; set; }
-
-
 
     }
 }
