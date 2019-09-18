@@ -265,8 +265,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\ChartWrapperClient.cs" />
     <Compile Include="API\IClient.cs" />
     <Compile Include="API\IResponse.cs" />
+    <Compile Include="API\StripeWrapperClient.cs" />
     <Compile Include="API\TwilioWrapperClient.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -277,6 +279,7 @@
     <Compile Include="Controllers\CalleesController.cs" />
     <Compile Include="Controllers\CampaignsController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
+    <Compile Include="Controllers\FundsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ManagersController.cs" />
@@ -325,6 +328,10 @@
     <Compile Include="Migrations\201909172049243_revertingmodels.cs" />
     <Compile Include="Migrations\201909172049243_revertingmodels.Designer.cs">
       <DependentUpon>201909172049243_revertingmodels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909180153197_ChartsAPI.cs" />
+    <Compile Include="Migrations\201909180153197_ChartsAPI.Designer.cs">
+      <DependentUpon>201909180153197_ChartsAPI.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -395,6 +402,7 @@
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\script-custom-graphs.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
@@ -446,7 +454,6 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_EmployeeLayout.cshtml" />
-    <Content Include="Views\Shared\_ManagerLayout.cshtml" />
     <Content Include="Views\Employees\Create.cshtml" />
     <Content Include="Views\Employees\Delete.cshtml" />
     <Content Include="Views\Employees\Details.cshtml" />
@@ -472,13 +479,16 @@
     <Content Include="Views\Phones\Details.cshtml" />
     <Content Include="Views\Phones\Edit.cshtml" />
     <Content Include="Views\Phones\Index.cshtml" />
-    <Content Include="Views\Texts\Create.cshtml" />
-    <Content Include="Views\Texts\Delete.cshtml" />
-    <Content Include="Views\Texts\Details.cshtml" />
-    <Content Include="Views\Texts\Edit.cshtml" />
-    <Content Include="Views\Texts\Index.cshtml" />
-    <Content Include="Views\Texts\SendTextAsync.cshtml" />
     <Content Include="Views\Phones\Dial.cshtml" />
+    <Content Include="Views\Phones\SendTextAsync.cshtml" />
+    <Content Include="Views\Managers\Data.cshtml" />
+    <Content Include="Views\Funds\Create.cshtml" />
+    <Content Include="Views\Funds\Delete.cshtml" />
+    <Content Include="Views\Funds\Details.cshtml" />
+    <Content Include="Views\Funds\Edit.cshtml" />
+    <Content Include="Views\Funds\Index.cshtml" />
+    <Content Include="Views\Funds\_ViewGraphPartial.cshtml" />
+    <Content Include="Views\Shared\_ManagerLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -519,6 +529,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909172049243_revertingmodels.resx">
       <DependentUpon>201909172049243_revertingmodels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909180153197_ChartsAPI.resx">
+      <DependentUpon>201909180153197_ChartsAPI.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

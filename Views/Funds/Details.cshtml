@@ -1,0 +1,58 @@
+﻿@model Fundraising_Capstone2.Models.Funds
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Funds</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DailyFunds)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DailyFunds)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WeeklyFunds)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WeeklyFunds)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MonthlyFunds)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MonthlyFunds)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuarterlyFunds)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuarterlyFunds)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YearlyFunds)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YearlyFunds)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FundId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

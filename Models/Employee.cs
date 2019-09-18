@@ -30,6 +30,8 @@ namespace Fundraising_Capstone2.Models
 
         public Callee callee { get; set; }
 
+        public string outgoingText { get; set; }
+
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd]", ApplyFormatInEditMode = true)]
         public DateTime HireDate;
