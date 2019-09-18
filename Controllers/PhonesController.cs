@@ -301,13 +301,21 @@ namespace Fundraising_Capstone2.Controllers
         //    // grab calle from id
         //    return RedirectToAction("SendTextAsync", "Texts");
         //}
+        public ActionResult SendTextAsync(int id)
+        {
+            Phone phone = new Phone()
+            {
+                Callee = db.Callees.Where(c => c.CalleeId == id).Single()
+            };
+            return View(phone);
+        }
 
         [HttpPost]
-        public async System.Threading.Tasks.Task<ActionResult> SendTextAsync()
+        public async System.Threading.Tasks.Task<ActionResult> SendTextAsync(string outgoingText, int CalleeId)
         {
             TwilioWrapperClient sms = new TwilioWrapperClient(APIKeys.SID, APIKeys.AuthToken);
 
-           // await sms.SendSmsAsync("414-310-7982", this.Callee.phoneNumber, outgoingText);
+            await sms.SendSmsAsync("414-310-7982", this.Callee.phoneNumber, outgoingText);
 
             if (this.Callee.hasResponse)
             {

@@ -333,6 +333,10 @@
     <Compile Include="Migrations\201909180153197_ChartsAPI.Designer.cs">
       <DependentUpon>201909180153197_ChartsAPI.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909181232328_UpdatedCalleeModel3.cs" />
+    <Compile Include="Migrations\201909181232328_UpdatedCalleeModel3.Designer.cs">
+      <DependentUpon>201909181232328_UpdatedCalleeModel3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Callee.cs" />
@@ -532,6 +536,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909180153197_ChartsAPI.resx">
       <DependentUpon>201909180153197_ChartsAPI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909181232328_UpdatedCalleeModel3.resx">
+      <DependentUpon>201909181232328_UpdatedCalleeModel3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
