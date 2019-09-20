@@ -38,9 +38,9 @@ namespace Fundraising_Capstone2.Controllers
             using (ApplicationDbContext context = new ApplicationDbContext())
             {
                 Funds funds = db.Funds
-               //.Include("CampaignFunds").Select(cp => cp)
-               //.Include("EmployeeFunds").Select(em => em)
-               //.Include("CalleeFunds").Select(ca => ca)
+               .Include("CampaignFunds").Select(cp => cp)
+               .Include("EmployeeFunds").Select(em => em)
+               .Include("CalleeFunds").Select(ca => ca)
                .FirstOrDefault(fu => fu.FundId == FundId);
                 if (funds == null)
                 {

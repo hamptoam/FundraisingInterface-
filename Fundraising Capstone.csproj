@@ -278,6 +278,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CalleesController.cs" />
     <Compile Include="Controllers\CampaignsController.cs" />
+    <Compile Include="Controllers\DataViewModelsController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\FundsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -487,6 +488,12 @@
     <Content Include="Views\Funds\Index.cshtml" />
     <Content Include="Views\Funds\_ViewGraphPartial.cshtml" />
     <Content Include="Views\Shared\_ManagerLayout.cshtml" />
+    <Content Include="Views\DataViewModels\Create.cshtml" />
+    <Content Include="Views\DataViewModels\Delete.cshtml" />
+    <Content Include="Views\DataViewModels\Details.cshtml" />
+    <Content Include="Views\DataViewModels\Edit.cshtml" />
+    <Content Include="Views\DataViewModels\Index.cshtml" />
+    <Content Include="Views\DataViewModels\CampaignStats.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

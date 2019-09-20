@@ -9,7 +9,5 @@ namespace Fundraising_Capstone2.Models
     {
         public int Id { get; set; }
 
-
-
     }
 }
