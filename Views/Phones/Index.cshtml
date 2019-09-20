@@ -146,9 +146,9 @@
                 <p>
                     @Html.ActionLink("Create New", "Create")
                 <td>
-                    @Html.ActionLink("Text", "SendTextAsync", new { id = item.CalleeId})
-                    @Html.ActionLink("Dial", "Dial", new { id = item.CalleeId    })
-                    @Html.ActionLink("Edit", "Edit", new { id = item.CalleeId}) 
+                    @Html.ActionLink("Text", "SendTextAsync", new { id = item.CalleeId })
+                    @Html.ActionLink("Dial", "DialAsync", new { id = item.CalleeId })
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CalleeId }) 
                     @Html.ActionLink("Details", "Details", new { id = item.CalleeId }) 
                     @Html.ActionLink("Delete", "Delete", new { id = item.CalleeId })
                 </td>

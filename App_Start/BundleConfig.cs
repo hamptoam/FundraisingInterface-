@@ -28,6 +28,8 @@ namespace Fundraising_Capstone2
 
             bundles.Add(new StyleBundle("~/Scripts/js").Include(
                "~/Scripts/quickstart.js"));
+            bundles.Add(new StyleBundle("~/Scripts/js").Include(
+                "~/Scripts/script-custom-graphs.js"));
         }
     }
 }

@@ -132,8 +132,8 @@
     <Reference Include="SendGrid, Version=9.12.0.0, Culture=neutral, PublicKeyToken=4f047e93159395ca, processorArchitecture=MSIL">
       <HintPath>packages\Sendgrid.9.12.0\lib\net452\SendGrid.dll</HintPath>
     </Reference>
-    <Reference Include="Stripe.net, Version=29.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Stripe.net.29.1.0\lib\net45\Stripe.net.dll</HintPath>
+    <Reference Include="Stripe.net, Version=29.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Stripe.net.29.2.0\lib\net45\Stripe.net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
@@ -227,8 +227,8 @@
       <Private>True</Private>
       <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
-    <Reference Include="Twilio, Version=5.32.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Twilio.5.32.0\lib\net451\Twilio.dll</HintPath>
+    <Reference Include="Twilio, Version=5.33.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Twilio.5.33.0\lib\net451\Twilio.dll</HintPath>
     </Reference>
     <Reference Include="Twilio.AspNet.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\Twilio.AspNet.Common.5.20.1\lib\net45\Twilio.AspNet.Common.dll</HintPath>
@@ -284,7 +284,6 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ManagersController.cs" />
     <Compile Include="Controllers\PhonesController.cs" />
-    <Compile Include="Controllers\TokenController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -333,9 +332,17 @@
     <Compile Include="Migrations\201909180153197_ChartsAPI.Designer.cs">
       <DependentUpon>201909180153197_ChartsAPI.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201909181232328_UpdatedCalleeModel3.cs" />
-    <Compile Include="Migrations\201909181232328_UpdatedCalleeModel3.Designer.cs">
-      <DependentUpon>201909181232328_UpdatedCalleeModel3.cs</DependentUpon>
+    <Compile Include="Migrations\201909192304295_UpdatingModels.cs" />
+    <Compile Include="Migrations\201909192304295_UpdatingModels.Designer.cs">
+      <DependentUpon>201909192304295_UpdatingModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909201551003_PhonesandConfiguration.cs" />
+    <Compile Include="Migrations\201909201551003_PhonesandConfiguration.Designer.cs">
+      <DependentUpon>201909201551003_PhonesandConfiguration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909201600547_TestingErrors.cs" />
+    <Compile Include="Migrations\201909201600547_TestingErrors.Designer.cs">
+      <DependentUpon>201909201600547_TestingErrors.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -346,6 +353,7 @@
     <Compile Include="Models\CampaignEmployee.cs" />
     <Compile Include="Models\CampaignFunds.cs" />
     <Compile Include="Models\CampaignManager.cs" />
+    <Compile Include="Models\DataViewModel.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\EmployeeCallee.cs" />
     <Compile Include="Models\EmployeeFunds.cs" />
@@ -359,17 +367,11 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-grid.css" />
-    <Content Include="Content\bootstrap-grid.min.css" />
-    <Content Include="Content\bootstrap-reboot.css" />
-    <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Scripts\bootstrap.bundle.js" />
-    <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
@@ -380,16 +382,8 @@
     <Content Include="Scripts\esm\popper.js.map" />
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
-    <Content Include="Scripts\bootstrap.min.js.map" />
-    <Content Include="Scripts\bootstrap.js.map" />
-    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
-    <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-reboot.min.css.map" />
-    <Content Include="Content\bootstrap-reboot.css.map" />
-    <Content Include="Content\bootstrap-grid.min.css.map" />
-    <Content Include="Content\bootstrap-grid.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -537,8 +531,14 @@
     <EmbeddedResource Include="Migrations\201909180153197_ChartsAPI.resx">
       <DependentUpon>201909180153197_ChartsAPI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909181232328_UpdatedCalleeModel3.resx">
-      <DependentUpon>201909181232328_UpdatedCalleeModel3.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201909192304295_UpdatingModels.resx">
+      <DependentUpon>201909192304295_UpdatingModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909201551003_PhonesandConfiguration.resx">
+      <DependentUpon>201909201551003_PhonesandConfiguration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909201600547_TestingErrors.resx">
+      <DependentUpon>201909201600547_TestingErrors.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

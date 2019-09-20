@@ -46,7 +46,8 @@ namespace Fundraising_Capstone2.Models
 
         public DbSet<EmployeeFunds> EmployeeFunds { get; set; }
 
-        public DbSet<Fundraising_Capstone2.Models.Phone> Phones { get; set; }
+        public DbSet<Phone> Phones { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

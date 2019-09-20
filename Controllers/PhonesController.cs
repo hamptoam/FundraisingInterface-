@@ -51,6 +51,8 @@ namespace Fundraising_Capstone2.Controllers
                 }
             }
         }
+    
+
         // GET: Phones/Details/5
         public ActionResult Details(int? CalleeId)
         {
@@ -150,16 +152,27 @@ namespace Fundraising_Capstone2.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
         [HttpGet]
-        public ActionResult Dial(string to)
+        public ActionResult DialAsync(int CalleeId)
         {
-            TwilioWrapperClient test = new TwilioWrapperClient(APIKeys.SID, APIKeys.AuthToken);
-            test.CallAsync("414-310-7982", this.Callee.phoneNumber, "Goodbye");
 
+            var callee = db.Callees.Where(c => c.CalleeId == CalleeId).Single();
 
-            return View();
+            return View(callee);
         }
+
+
+        [HttpPost]
+        public async System.Threading.Tasks.Task<ActionResult> DialAsync(Phone phone)
+        {
+            Callee callee = db.Callees.Where(c => c.CalleeId == phone.CalleeId).Single();
+            TwilioWrapperClient test = new TwilioWrapperClient(APIKeys.sID, APIKeys.AuthToken);
+            await test.CallAsync("+14143107982", callee.phoneNumber, "Goodbye");
+
+
+            return RedirectToAction("Index");
+        }
+
         [HttpGet]
         public void setTime()
         {
@@ -301,53 +314,33 @@ namespace Fundraising_Capstone2.Controllers
         //    // grab calle from id
         //    return RedirectToAction("SendTextAsync", "Texts");
         //}
+
+        [HttpGet]
         public ActionResult SendTextAsync(int id)
         {
-            Phone phone = new Phone()
-            {
-                Callee = db.Callees.Where(c => c.CalleeId == id).Single()
-            };
-            return View(phone);
+            Phone phone = new Phone() { CalleeId = id };
+            //var callee = db.Callees.Where(c => c.CalleeId == id).Single();
+
+            return View(phone); 
         }
 
+
         [HttpPost]
-        public async System.Threading.Tasks.Task<ActionResult> SendTextAsync(string outgoingText, int CalleeId)
+        public async System.Threading.Tasks.Task<ActionResult> SendTextAsync(Phone phone)
         {
-            TwilioWrapperClient sms = new TwilioWrapperClient(APIKeys.SID, APIKeys.AuthToken);
+            Callee callee = db.Callees.Where(c => c.CalleeId == phone.CalleeId).Single();
+            TwilioWrapperClient sms = new TwilioWrapperClient(APIKeys.sID, APIKeys.AuthToken);
 
-            await sms.SendSmsAsync("414-310-7982", this.Callee.phoneNumber, outgoingText);
+            await sms.SendSmsAsync("+14143107982", "+12622475847", phone.outgoingText);
 
-            if (this.Callee.hasResponse)
-            {
-                //Console.WriteLine(Respose);
-                //Console.WriteLine("Is callee interested");
-                //string Input = Console.ReadLine();
-                //if (Input == "Yes")
-                //{
-                //    Callee.isInterested = true;
-                //}
-                //else if (Input == "No")
-                //    /       {
-                //    //            Callee.isInterested = false;
-                //    //        };
-                //    //    }
-                //    //    else
-                //    //    {
-                //    //        return View();
-                //    //    }
 
-                return View();
-            }
-            return View();
-
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
         public ActionResult RecieveText()
         {
-            TwilioWrapperClient rps = new TwilioWrapperClient(APIKeys.SID, APIKeys.AuthToken);
-
-            //this.Callee.response)
+            TwilioWrapperClient rps = new TwilioWrapperClient(APIKeys.sID, APIKeys.AuthToken);
 
             return View();
         }

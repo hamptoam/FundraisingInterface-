@@ -11,6 +11,14 @@ namespace Fundraising_Capstone2.Controllers
     {
         public ActionResult Index()
         {
+            if (this.User.IsInRole("Manager"))
+            {
+                return RedirectToAction("Index", "Managers");
+            }
+            else if(this.User.IsInRole("Employee"))
+            {
+                return RedirectToAction("Index", "Phones");
+            }
             return View();
         }
 

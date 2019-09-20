@@ -18,16 +18,17 @@ namespace Fundraising_Capstone2.API
 {
     public class TwilioWrapperClient : IClient
     {
-
-        private readonly string sID, authToken;
-        ///<summary>
-        /// the authentication items
-        ///</summary>
-
+        string sID;
+        string authToken;
+        string username;
+        string password;
         public TwilioWrapperClient(string sID, string authToken)
         {
-            APIKeys.sID = sID;
-            APIKeys.authToken = authToken; 
+
+            sID = APIKeys.sID;
+            authToken = APIKeys.AuthToken;
+
+            Init();
         }
 
         public bool CanCall { get { return true; } }
@@ -40,7 +41,10 @@ namespace Fundraising_Capstone2.API
 
         public void Init()
         {
-            TwilioClient.Init(sID, authToken);
+            string username = APIKeys.sID;
+            string password = APIKeys.AuthToken;
+
+            TwilioClient.Init(username, password);
 
             IsInitialized = true;
         }

@@ -42,7 +42,7 @@ function drawGraph(dataValues, options, elementId) {
     // Setting.  
     data.addColumn('number', 'DailyFunds');
     data.addColumn('number', 'WeeklyFunds');
-    data.addColumn('number', "Monthly Funds');
+    data.addColumn('number', 'MonthlyFunds');
     data.addColumn('number', 'QuarterlyFunds');
     data.addColumn('number', 'YearlyFunds');
 

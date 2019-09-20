@@ -10,34 +10,23 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-}
 <div class="form-horizontal">
-    <h4>Phone</h4>
+    <h4>OutgoingText</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+<div class="form-group">
+    @Html.TextBoxFor(model => model.outgoingText, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.ValidationMessageFor(model => model.outgoingText, "", new { @class = "text-danger" })
+    </div>
+</div>
+    @Html.HiddenFor(m => m.CalleeId)
     <div class="form-group">
-        @Html.LabelFor(model => model.outgoingText, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.outgoingText, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.outgoingText, "", new { @class = "text-danger" })
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Send Text" class="btn btn-default" />
         </div>
     </div>
-    <b>Outgoing</b> @Html.TextBox("outgoingText", "Enter outgoing message", new { style = "color:red" })
-
-    <input type="button"
-           value="Send"
-           onclick="location.href='<%: Url.Action("outgoingText", "SendTextAsync" ) %'" />
-
-    <b>Incoming</b> @*Html.TextBox("", "", new { style = "color:red" })*@
-    <div class=""
-<div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
+</div>
 }
 
 <div>

@@ -81,13 +81,12 @@ namespace Fundraising_Capstone2.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-
-                    return RedirectToAction("Index", "Phones");
+                    return RedirectToAction("Index", "Home");
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
-                case SignInStatus.Failure:
+                 case SignInStatus.Failure:
                 default:
                     ModelState.AddModelError("", "Invalid login attempt.");
                     return View(model);
@@ -170,18 +169,21 @@ namespace Fundraising_Capstone2.Controllers
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
                     await this.UserManager.AddToRoleAsync(user.Id, model.UserRoles);
 
-                    if (this.User.IsInRole("Employee"))
+                    if (model.UserRoles == "Employee")
                     {
-                        return RedirectToAction("Phones", "Index");
+                        return RedirectToAction("Index", "Phones");
                     }
-                    else if (this.User.IsInRole("Manager"))
+                    else if (model.UserRoles == "Manager")
                     {
-                        return RedirectToAction("Managers", "Index");
+                        return RedirectToAction("Index", "Managers");
                     }
                 }
                 AddErrors(result);
             }
+            
 
+            ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin"))
+                                           .ToList(), "Name", "Name");
             // If we got this far, something failed, redisplay form
             return View(model);
         }
