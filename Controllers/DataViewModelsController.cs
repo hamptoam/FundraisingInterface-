@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fundraising_Capstone2.Models;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -6,9 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Reflection;
-using System.Web;
 using System.Web.Mvc;
-using Fundraising_Capstone2.Models;
 
 namespace Fundraising_Capstone2.Controllers
 {
@@ -51,31 +50,31 @@ namespace Fundraising_Capstone2.Controllers
               }
         }
         #region Get data method
-        public ActionResult GetGata()
+        public ActionResult GetGata(Employee employee)
         {
             JsonResult result = new JsonResult();
 
             try
             {
-                List<Funds> data = this.LoadData();
+                List<Employee> data = LoadData();
 
-                var graphData = data.GroupBy(p => new
+                var graphData = data.GroupBy(e => new
                 {
-                    p.DailyFunds,
-                    p.WeeklyFunds,
-                    p.MonthlyFunds,
-                    p.QuarterlyFunds,
-                    p.YearlyFunds
+                    e.DailyCalls,
+                    e.WeeklyCalls,
+                    e.QuantityGifts,
+                    e.WeeklyQuantityGifts
+                    //e.YearlyFunds
                 })
-                    .Select(g => new
+                    .Select(e => new
                     {
 
-                    g.Key.DailyFunds,
-                    g.Key.WeeklyFunds,
-                    g.Key.MonthlyFunds,
-                    g.Key.QuarterlyFunds,
-                    g.Key.YearlyFunds
-                       });
+                    e.Key.DailyCalls,
+                    e.Key.WeeklyCalls,
+                    e.Key.QuantityGifts,
+                    e.Key.WeeklyQuantityGifts,
+
+                    });
 
                 graphData = graphData.Take(10).Select(p => p).ToList();
 
@@ -94,9 +93,9 @@ namespace Fundraising_Capstone2.Controllers
 
         #region Load Data
 
-        private List<Funds> LoadData()
+        private List<Funds> LoadData(Employee employee)
         {
-            List<Funds> first = new List<Funds>();
+            List<Employee> first = new List<Employee>();
 
             try
             {
@@ -109,17 +108,15 @@ namespace Fundraising_Capstone2.Controllers
 
                 while ((line = sr.ReadLine()) != null)
                 {
-                    Funds infoObj = new Funds();
+                    Employee infoObj = new Employee();
                     string[] info = line.Split(',');
 
-                    infoObj.FundId = Convert.ToInt32(info[0].ToString());
-                    infoObj.DailyFunds = Convert.ToInt32(info[1].ToString());
-                    infoObj.WeeklyFunds = Convert.ToInt32(info[2].ToString());
-                    infoObj.MonthlyFunds = Convert.ToInt32(info[3].ToString());
-                    infoObj.QuarterlyFunds = Convert.ToInt32(info[4].ToString());
-                    infoObj.YearlyFunds = Convert.ToInt32(info[5].ToString());
+                    infoObj.DailyCalls = Convert.ToInt32(info[1].ToString());
+                    infoObj.WeeklyCalls = Convert.ToInt32(info[2].ToString());
+                    infoObj.QuantityGifts = Convert.ToInt32(info[3].ToString());
+                    infoObj.WeeklyQuantityGifts = Convert.ToInt32(info[4].ToString());
 
-                    first.Add(infoObj);
+                    first.Add();
                 }
 
                 sr.Dispose();
@@ -246,7 +243,7 @@ namespace Fundraising_Capstone2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "FundId,DailyFunds,WeeklyFunds,MonthlyFunds,QuarterlyFunds,YearlyFunds")] Funds funds)
+        public ActionResult Edit([Bind(Include = "DailyCalls,WeeklyCalls,Daily,QuarterlyFunds,YearlyFunds")] Funds funds)
         {
             if (ModelState.IsValid)
             {

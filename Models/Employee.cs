@@ -18,15 +18,17 @@ namespace Fundraising_Capstone2.Models
         [Key]
         public int EmployeeId { get; set; }
 
-        public string firstName { get; set; }
+        public string FirstName { get; set; }
 
-        public string lastName { get; set; }
+        public string LastName { get; set; }
 
-        public string userName { get; set; }
+        public string UserName { get; set; }
 
-        public string passWord { get; set; }
+        public Campaign Campaign { get; set; }
 
-        public List<Callee> callList { get; set; }
+        public string Password { get; set; }
+
+        public List<Callee> CallList { get; set; }
 
         public Callee callee { get; set; }
 
@@ -37,6 +39,14 @@ namespace Fundraising_Capstone2.Models
         public DateTime HireDate;
 
         public virtual ICollection<Campaign> Campaigns { get; set; }
+
+        public int DailyCalls { get; set; }
+
+        public int QuantityGifts { get; set; }
+
+        public int WeeklyCalls { get; set; } 
+
+        public int WeeklyQuantityGifts { get; set; }
 
     }
 }
