@@ -486,7 +486,6 @@
     <Content Include="Views\Funds\Details.cshtml" />
     <Content Include="Views\Funds\Edit.cshtml" />
     <Content Include="Views\Funds\Index.cshtml" />
-    <Content Include="Views\Funds\_ViewGraphPartial.cshtml" />
     <Content Include="Views\Shared\_ManagerLayout.cshtml" />
     <Content Include="Views\DataViewModels\Create.cshtml" />
     <Content Include="Views\DataViewModels\Delete.cshtml" />
@@ -494,11 +493,12 @@
     <Content Include="Views\DataViewModels\Edit.cshtml" />
     <Content Include="Views\DataViewModels\Index.cshtml" />
     <Content Include="Views\DataViewModels\CampaignStats.cshtml" />
-    <Content Include="Views\Campaigns\EmployeeStats.cshtml" />
     <Content Include="Views\Shared\_DataLayout.cshtml" />
     <Content Include="Views\DataViewModels\View.cshtml" />
     <Content Include="Views\DataViewModels\CalleeStats.cshtml" />
     <Content Include="Views\DataViewModels\EmployeeStats.cshtml" />
+    <Content Include="Views\DataViewModels\_ViewGraphPartial.cshtml" />
+    <Content Include="Views\Funds\_ViewGraphPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
