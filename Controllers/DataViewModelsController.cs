@@ -123,9 +123,7 @@ namespace Fundraising_Capstone2.Controllers
             {
                 try
                 {
-                    var calleefunds = db.CalleeFunds.ToList();
-
-                    return View(calleefunds);
+                    
                 }
                 catch
                 {
@@ -140,13 +138,11 @@ namespace Fundraising_Capstone2.Controllers
     {
         try
         {
-            var campaignfunds = db.CampaignFunds.ToList();
-
-            return View(campaignfunds);
+         
         }
         catch
         {
-            return View();
+            
 
         }
     }

@@ -494,6 +494,11 @@
     <Content Include="Views\DataViewModels\Edit.cshtml" />
     <Content Include="Views\DataViewModels\Index.cshtml" />
     <Content Include="Views\DataViewModels\CampaignStats.cshtml" />
+    <Content Include="Views\Campaigns\EmployeeStats.cshtml" />
+    <Content Include="Views\Shared\_DataLayout.cshtml" />
+    <Content Include="Views\DataViewModels\View.cshtml" />
+    <Content Include="Views\DataViewModels\CalleeStats.cshtml" />
+    <Content Include="Views\DataViewModels\EmployeeStats.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
