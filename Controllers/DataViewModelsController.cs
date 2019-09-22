@@ -35,19 +35,19 @@ namespace Fundraising_Capstone2.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-              using (ApplicationDbContext context = new ApplicationDbContext())
-              {
-                  Employee employee = db.Employees
-                 .Include("EmployeeFunds").Select(fu => fu)
-                 .Include("ManagerEmployee").Select(em => em)
-                 .Include("CampaignEmployee").Select(ca => ca)
-                  .FirstOrDefault(em => em.EmployeeId == EmployeeId);
-                  if (employee == null)
-                  {
-                      return HttpNotFound();
-                  }   
+            using (ApplicationDbContext context = new ApplicationDbContext())
+            {
+                Employee employee = db.Employees
+               .Include("EmployeeFunds").Select(fu => fu)
+               .Include("ManagerEmployee").Select(em => em)
+               .Include("CampaignEmployee").Select(ca => ca)
+                .FirstOrDefault(em => em.EmployeeId == EmployeeId);
+                if (employee == null)
+                {
+                    return HttpNotFound();
+                }
                 return View();
-              }
+            }
         }
         #region Get data method
         public ActionResult GetGata(Employee employee)
@@ -56,7 +56,7 @@ namespace Fundraising_Capstone2.Controllers
 
             try
             {
-                List<Employee> data = LoadData();
+                List<Employee> data = this.LoadData();
 
                 var graphData = data.GroupBy(e => new
                 {
@@ -66,15 +66,14 @@ namespace Fundraising_Capstone2.Controllers
                     e.WeeklyQuantityGifts
                     //e.YearlyFunds
                 })
-                    .Select(e => new
+                    .Select(g => new
                     {
 
-                    e.Key.DailyCalls,
-                    e.Key.WeeklyCalls,
-                    e.Key.QuantityGifts,
-                    e.Key.WeeklyQuantityGifts,
-
-                    });
+                        g.Key.DailyCalls,
+                        g.Key.WeeklyCalls,
+                        g.Key.QuantityGifts,
+                        g.Key.WeeklyQuantityGifts
+                    }).ToList();
 
                 graphData = graphData.Take(10).Select(p => p).ToList();
 
@@ -93,14 +92,13 @@ namespace Fundraising_Capstone2.Controllers
 
         #region Load Data
 
-        private List<Funds> LoadData(Employee employee)
-        {
+         public List<Employee> LoadData()
+         {
             List<Employee> first = new List<Employee>();
-
             try
             {
                 string line = string.Empty;
-                string srcFilePath = "Content/files/Funds.txt";
+                string srcFilePath = "Content/files/Employee.txt";
                 var rootPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase);
                 var fullPath = Path.Combine(rootPath, srcFilePath);
                 string filePath = new Uri(fullPath).LocalPath;
@@ -116,7 +114,7 @@ namespace Fundraising_Capstone2.Controllers
                     infoObj.QuantityGifts = Convert.ToInt32(info[3].ToString());
                     infoObj.WeeklyQuantityGifts = Convert.ToInt32(info[4].ToString());
 
-                    first.Add();
+                    first.Add(infoObj);
                 }
 
                 sr.Dispose();
@@ -130,9 +128,9 @@ namespace Fundraising_Capstone2.Controllers
 
             }
 
-
             return first;
         }
+    
         #endregion
 
         #endregion
@@ -243,7 +241,7 @@ namespace Fundraising_Capstone2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "DailyCalls,WeeklyCalls,Daily,QuarterlyFunds,YearlyFunds")] Funds funds)
+        public ActionResult Edit([Bind(Include = "DailyCalls,WeeklyCalls,QuantityGifts,WeeklyQuantityGifts,QuarterlyFunds,YearlyFunds")] Funds funds)
         {
             if (ModelState.IsValid)
             {

@@ -349,6 +349,10 @@
     <Compile Include="Migrations\201909211946281_EmployeeModelModifications.Designer.cs">
       <DependentUpon>201909211946281_EmployeeModelModifications.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909221548170_DoubleCheck.cs" />
+    <Compile Include="Migrations\201909221548170_DoubleCheck.Designer.cs">
+      <DependentUpon>201909221548170_DoubleCheck.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Callee.cs" />
@@ -558,6 +562,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909211946281_EmployeeModelModifications.resx">
       <DependentUpon>201909211946281_EmployeeModelModifications.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909221548170_DoubleCheck.resx">
+      <DependentUpon>201909221548170_DoubleCheck.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
