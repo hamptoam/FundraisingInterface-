@@ -1,8 +1,8 @@
 ﻿@{
-        ViewBag.Title = "_ManagerLayout";
+        ViewBag.Title = "ManagerPortal";
     }
 
-    <h2>_ManagerLayout</h2>
+    <h2>Manager Portal</h2>
 
     <!DOCTYPE html>
     <html>
@@ -14,7 +14,7 @@
         @Scripts.Render("~/bundles/modernizr")
 
          Font Awesome
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/3.4.1/css/font-awesome.min.css" />
 
          Custom
         @Styles.Render("~/Content/css/custom-style")
@@ -28,6 +28,15 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
+                    @Html.ActionLink("DataPortal", "Index", "DataViewModels", new { area = "" }, new { @class = "navbar-brand" });
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Employee Stats", "EmployeeStats", "DataViewModels")</li>
+                        <li>@Html.ActionLink("Campaign Stats", "CampaignStats", "DataViewModels")</li>
+                        <li>@Html.ActionLink("Callee Stats", "CalleeStats", "DataViewModels")</li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
                 </div>
             </div>
         </div>
@@ -36,7 +45,7 @@
             <hr />
             <footer>
                 <center>
-                    <p><strong>Copyright © @DateTime.Now.Year - <a href="http://www.asmak9.com/">Asma's Blog</a>.</strong> All rights reserved.</p>
+                    <p><strong>Copyright © @DateTime.Now.Year - <a href="http://www.asmak9.com/"></a>.</strong> All rights reserved.</p>
                 </center>
             </footer>
         </div>
