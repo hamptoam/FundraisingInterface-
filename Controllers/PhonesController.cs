@@ -153,10 +153,10 @@ namespace Fundraising_Capstone2.Controllers
             return RedirectToAction("Index");
         }
         [HttpGet]
-        public ActionResult DialAsync(int CalleeId)
+        public ActionResult DialAsync(int? CalleeId)
         {
 
-            var callee = db.Callees.Where(c => c.CalleeId == CalleeId).Single();
+            var callee = db.Callees.Where(c => c.CalleeId == CalleeId).FirstOrDefault();
 
             return View(callee);
         }
