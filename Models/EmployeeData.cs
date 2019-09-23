@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Fundraising_Capstone2.Models
 {
-    public class DataViewModel
+    public class EmployeeData
     {
         public int Id { get; set; }
 

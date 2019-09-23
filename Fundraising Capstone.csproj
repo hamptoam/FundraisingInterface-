@@ -278,7 +278,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CalleesController.cs" />
     <Compile Include="Controllers\CampaignsController.cs" />
-    <Compile Include="Controllers\DataViewModelsController.cs" />
+    <Compile Include="Controllers\EmployeeDataController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\FundsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -353,6 +353,10 @@
     <Compile Include="Migrations\201909221548170_DoubleCheck.Designer.cs">
       <DependentUpon>201909221548170_DoubleCheck.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909230226221_RenamedModel.cs" />
+    <Compile Include="Migrations\201909230226221_RenamedModel.Designer.cs">
+      <DependentUpon>201909230226221_RenamedModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Callee.cs" />
@@ -362,7 +366,7 @@
     <Compile Include="Models\CampaignEmployee.cs" />
     <Compile Include="Models\CampaignFunds.cs" />
     <Compile Include="Models\CampaignManager.cs" />
-    <Compile Include="Models\DataViewModel.cs" />
+    <Compile Include="Models\EmployeeData.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\EmployeeCallee.cs" />
     <Compile Include="Models\EmployeeFunds.cs" />
@@ -495,17 +499,17 @@
     <Content Include="Views\Funds\Edit.cshtml" />
     <Content Include="Views\Funds\Index.cshtml" />
     <Content Include="Views\Shared\_ManagerLayout.cshtml" />
-    <Content Include="Views\DataViewModels\Create.cshtml" />
-    <Content Include="Views\DataViewModels\Delete.cshtml" />
-    <Content Include="Views\DataViewModels\Details.cshtml" />
-    <Content Include="Views\DataViewModels\Edit.cshtml" />
-    <Content Include="Views\DataViewModels\Index.cshtml" />
-    <Content Include="Views\DataViewModels\CampaignStats.cshtml" />
+    <Content Include="Views\EmployeeData\Create.cshtml" />
+    <Content Include="Views\EmployeeData\Delete.cshtml" />
+    <Content Include="Views\EmployeeData\Details.cshtml" />
+    <Content Include="Views\EmployeeData\Edit.cshtml" />
+    <Content Include="Views\EmployeeData\Index.cshtml" />
+    <Content Include="Views\EmployeeData\CampaignStats.cshtml" />
     <Content Include="Views\Shared\_DataLayout.cshtml" />
-    <Content Include="Views\DataViewModels\View.cshtml" />
-    <Content Include="Views\DataViewModels\CalleeStats.cshtml" />
-    <Content Include="Views\DataViewModels\EmployeeStats.cshtml" />
-    <Content Include="Views\DataViewModels\_ViewGraphPartial.cshtml" />
+    <Content Include="Views\EmployeeData\View.cshtml" />
+    <Content Include="Views\EmployeeData\CalleeStats.cshtml" />
+    <Content Include="Views\EmployeeData\EmployeeStats.cshtml" />
+    <Content Include="Views\EmployeeData\_ViewGraphPartial.cshtml" />
     <Content Include="Views\Funds\_ViewGraphPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -565,6 +569,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909221548170_DoubleCheck.resx">
       <DependentUpon>201909221548170_DoubleCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909230226221_RenamedModel.resx">
+      <DependentUpon>201909230226221_RenamedModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

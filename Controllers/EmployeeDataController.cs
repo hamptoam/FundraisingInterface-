@@ -11,7 +11,7 @@ using System.Web.Mvc;
 
 namespace Fundraising_Capstone2.Controllers
 {
-    public class DataViewModelsController : Controller
+    public class EmployeeDataController : Controller
     {
         #region Index method 
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -64,7 +64,6 @@ namespace Fundraising_Capstone2.Controllers
                     e.WeeklyCalls,
                     e.QuantityGifts,
                     e.WeeklyQuantityGifts
-                    //e.YearlyFunds
                 })
                     .Select(g => new
                     {

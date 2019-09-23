@@ -58,6 +58,6 @@ namespace Fundraising_Capstone2.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<Fundraising_Capstone2.Models.DataViewModel> DataViewModels { get; set; }
+        public System.Data.Entity.DbSet<Fundraising_Capstone2.Models.EmployeeData> DataViewModels { get; set; }
     }
 }
