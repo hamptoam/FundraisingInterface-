@@ -11,15 +11,15 @@ namespace Fundraising_Capstone2.Models
         [Key]
         public int FundId { get; set; }
 
-        public Decimal DailyFunds { get; set; }
+        public Double DailyFunds { get; set; }
 
-        public Decimal WeeklyFunds { get; set; }
+        public Double WeeklyFunds { get; set; }
 
-        public Decimal MonthlyFunds { get; set; }
+        public Double MonthlyFunds { get; set; }
 
-        public Decimal QuarterlyFunds { get; set; }
+        public Double QuarterlyFunds { get; set; }
 
-        public Decimal YearlyFunds { get; set; }
+        public Double YearlyFunds { get; set; }
 
     }
 }

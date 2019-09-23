@@ -11,7 +11,7 @@ using System.Web.Mvc;
 
 namespace Fundraising_Capstone2.Controllers
 {
-    public class EmployeeDataController : Controller
+    public class DataViewModelsController : Controller
     {
         #region Index method 
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -72,7 +72,7 @@ namespace Fundraising_Capstone2.Controllers
                         g.Key.WeeklyCalls,
                         g.Key.QuantityGifts,
                         g.Key.WeeklyQuantityGifts
-                    }).ToList();
+                    }).OrderByDescending(w => w.WeeklyQuantityGifts).ToList();
 
                 graphData = graphData.Take(10).Select(p => p).ToList();
 

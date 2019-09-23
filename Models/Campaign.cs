@@ -18,6 +18,8 @@ namespace Fundraising_Capstone2.Models
 
         [Key]
         public int CampaignId { get; set; }
+
+        public string CampaignName { get; set; }
  
        // public List<Employee> assignedCallers { get; set; 
         public virtual ICollection<Employee> Employees { get; set; }

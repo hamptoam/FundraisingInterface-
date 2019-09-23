@@ -1,8 +1,9 @@
-﻿@model Fundraising_Capstone2.Models.DataViewModel
-
-@{
-    Layout = null;
+﻿@{
+    ViewBag.Title = "EmployeeData";
 }
+
+<h2>Manager Portal</h2>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,10 +13,10 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+    Font Awesome
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/3.4.1/css/font-awesome.min.css" />
 
-    @* Custom *@
+    Custom
     @Styles.Render("~/Content/css/custom-style")
 </head>
 <body>
@@ -27,6 +28,15 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                @Html.ActionLink("DataPortal", "Index", "DataViewModels", new { area = "" }, new { @class = "navbar-brand" });
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Employee Stats", "Index", "DataViewModels")</li>
+                    <li>@Html.ActionLink("Campaign Stats", "CampaignStats", "DataViewModels")</li>
+                    <li>@Html.ActionLink("Callee Stats", "CalleeStats", "DataViewModels")</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
@@ -35,7 +45,7 @@
         <hr />
         <footer>
             <center>
-                <p><strong>Copyright © @DateTime.Now.Year - <a href="http://www.asmak9.com/">Asma's Blog</a>.</strong> All rights reserved.</p>
+                <p><strong>Copyright © @DateTime.Now.Year - <a href="http://www.asmak9.com/"></a>.</strong> All rights reserved.</p>
             </center>
         </footer>
     </div>
@@ -43,7 +53,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
 
-    <!-- Graphs -->
+    Graphs
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     @Scripts.Render("~/bundles/Script-custom-graphs")
 
