@@ -153,12 +153,13 @@ namespace Fundraising_Capstone2.Controllers
             return RedirectToAction("Index");
         }
         [HttpGet]
-        public ActionResult DialAsync(int? CalleeId)
+        public ActionResult DialAsync(int id)
         {
 
-            var callee = db.Callees.Where(c => c.CalleeId == CalleeId).FirstOrDefault();
+            Phone phone = new Phone() { CalleeId = id };
+            //var callee = db.Callees.Where(c => c.CalleeId == id).Single();
 
-            return View(callee);
+            return View(phone);
         }
 
 
@@ -331,7 +332,7 @@ namespace Fundraising_Capstone2.Controllers
             Callee callee = db.Callees.Where(c => c.CalleeId == phone.CalleeId).Single();
             TwilioWrapperClient sms = new TwilioWrapperClient(APIKeys.sID, APIKeys.AuthToken);
 
-            await sms.SendSmsAsync("+14143107982", "+12622475847", phone.outgoingText);
+            await sms.SendSmsAsync("+14143107982", "+12629332309", phone.outgoingText);
 
 
             return RedirectToAction("Index");

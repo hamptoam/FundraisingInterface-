@@ -27,7 +27,7 @@ namespace Fundraising_Capstone2.Controllers
         }
         #endregion
 
-        // GET: Funds/Details/5
+        [HttpGet]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -39,7 +39,6 @@ namespace Fundraising_Capstone2.Controllers
             {
                 Employee employee = db.Employees
                .Include("EmployeeFunds").Select(fu => fu)
-               .Include("ManagerEmployee").Select(em => em)
                .Include("CampaignEmployee").Select(ca => ca)
                 .FirstOrDefault(em => em.EmployeeId == EmployeeId);
                 if (employee == null)
@@ -208,16 +207,16 @@ namespace Fundraising_Capstone2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "FundId,DailyFunds,WeeklyFunds,MonthlyFunds,QuarterlyFunds,YearlyFunds")] Funds funds)
+        public ActionResult Create([Bind(Include = "FundId,DailyFunds,WeeklyFunds,MonthlyFunds,QuarterlyFunds,YearlyFunds")] Employee employee)
         {
             if (ModelState.IsValid)
             {
-                db.Funds.Add(funds);
+                db.Employees.Add(employee);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(funds);
+            return View(employee);
         }
 
         // GET: Funds/Edit/5
@@ -227,12 +226,12 @@ namespace Fundraising_Capstone2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Funds funds = db.Funds.Find(id);
-            if (funds == null)
+            Employee employees = db.Employees.Find(EmployeeId);
+            if (employees == null)
             {
                 return HttpNotFound();
             }
-            return View(funds);
+            return View(employees);
         }
 
         // POST: Funds/Edit/5
@@ -240,15 +239,15 @@ namespace Fundraising_Capstone2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "DailyCalls,WeeklyCalls,QuantityGifts,WeeklyQuantityGifts,QuarterlyFunds,YearlyFunds")] Funds funds)
+        public ActionResult Edit([Bind(Include = "DailyCalls,WeeklyCalls,QuantityGifts,WeeklyQuantityGifts")] Employee employees)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(funds).State = EntityState.Modified;
+                db.Entry(employees).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(funds);
+            return View(employees);
         }
 
         // GET: Funds/Delete/5
@@ -258,12 +257,12 @@ namespace Fundraising_Capstone2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Funds funds = db.Funds.Find(id);
-            if (funds == null)
+            Employee employees = db.Employees.Find(EmployeeId);
+            if (employees == null)
             {
                 return HttpNotFound();
             }
-            return View(funds);
+            return View(employees);
         }
 
         // POST: Funds/Delete/5
@@ -271,8 +270,8 @@ namespace Fundraising_Capstone2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Funds funds = db.Funds.Find(id);
-            db.Funds.Remove(funds);
+            Employee employees = db.Employees.Find(EmployeeId);
+            db.Employees.Remove(employees);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

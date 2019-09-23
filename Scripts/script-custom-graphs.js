@@ -40,16 +40,16 @@ function drawGraph(dataValues, options, elementId) {
     var data = new google.visualization.DataTable();
 
     // Setting.  
-    data.addColumn('number', 'DailyFunds');
-    data.addColumn('number', 'WeeklyFunds');
-    data.addColumn('number', 'MonthlyFunds');
-    data.addColumn('number', 'QuarterlyFunds');
-    data.addColumn('number', 'YearlyFunds');
+    data.addColumn('number', 'DailyCalls');
+    data.addColumn('number', 'QuantityGifts');
+    data.addColumn('number', 'WeeklyCalls');
+    data.addColumn('number', 'WeeklyQuanityGifts');
+ 
 
     // Processing...  
     for (var i = 0; i < dataValues.length; i++) {
         // Setting.  
-        data.addRow([dataValues[i].DailyFunds, dataValues[i].WeeklyFunds, dataValues[i].MonthlyFunds, dataValues[i].QuarterlyFunds, dataValues[i).YearlyFunds;
+        data.addRow([dataValues[i].DailyCalls, dataValues[i].QuantityGifts, dataValues[i].WeeklyCalls, dataValues[i].WeeklyQuantityGifts);
     }
 
     // Setting label.  
