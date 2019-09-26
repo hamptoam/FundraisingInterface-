@@ -16,9 +16,9 @@ namespace Fundraising_Capstone2.Migrations
         protected override void Seed(Fundraising_Capstone2.Models.ApplicationDbContext context)
         {
             context.Callees.AddOrUpdate(x => x.CalleeId,
-            new Callee() { CalleeId = 1, phoneNumber = "+12629332309", firstName = "Amelia", lastName = "Hampton", Address = "1928 E Trowbridge St", City = "Milwaukee", State = "Wisconsin", zipCode = 53207, callCount = 0, answerCount = 0 });
-            new Callee() { CalleeId = 2, phoneNumber = "+12175497249", firstName = "Everett", lastName = "Hampton", Address = "3029 W Marshall Ave", City = "Mattoon", State = "Illinois", zipCode = 61938, callCount = 0, answerCount = 0 };
-            new Callee() { CalleeId = 3, phoneNumber = "+14145265321", firstName = "Daniel", lastName = "Dickover", Address = "3716 S Herman St", City = "Milwuakee", State = "Wisconsin", zipCode = 53207, callCount = 0, answerCount = 0 };
+            new Callee() { CalleeId = 1, phoneNumber = "+12629332309", firstName = "Amelia", lastName = "Hampton", Address = "1928 E Trowbridge St", City = "Milwaukee", State = "Wisconsin", zipCode = 53207, callCount = 5, answerCount = 2 });
+            new Callee() { CalleeId = 2, phoneNumber = "+12175497249", firstName = "Everett", lastName = "Hampton", Address = "3029 W Marshall Ave", City = "Mattoon", State = "Illinois", zipCode = 61938, callCount = 5, answerCount = 0 };
+            new Callee() { CalleeId = 3, phoneNumber = "+14145265321", firstName = "Daniel", lastName = "Dickover", Address = "3716 S Herman St", City = "Milwuakee", State = "Wisconsin", zipCode = 53207, callCount = 4, answerCount = 1 };
 
 
             context.Employees.AddOrUpdate(x => x.EmployeeId,

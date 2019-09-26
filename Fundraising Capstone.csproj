@@ -527,7 +527,7 @@
     <Content Include="Views\DataViewModels\Delete.cshtml" />
     <Content Include="Views\DataViewModels\Details.cshtml" />
     <Content Include="Views\DataViewModels\Edit.cshtml" />
-    <Content Include="Views\DataViewModels\Index.cshtml" />
+    <Content Include="Views\DataViewModels\TempIndex.cshtml" />
     <Content Include="Views\DataViewModels\CampaignStats.cshtml" />
     <Content Include="Views\Shared\_DataLayout.cshtml" />
     <Content Include="Views\DataViewModels\View.cshtml" />
@@ -535,6 +535,7 @@
     <Content Include="Views\DataViewModels\EmployeeStats.cshtml" />
     <Content Include="Views\DataViewModels\_ViewGraphPartial.cshtml" />
     <Content Include="Views\Funds\_ViewGraphPartial.cshtml" />
+    <Content Include="Views\DataViewModels\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
