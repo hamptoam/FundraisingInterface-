@@ -153,11 +153,12 @@ namespace Fundraising_Capstone2.Controllers
             return RedirectToAction("Index");
         }
         [HttpGet]
-        public ActionResult DialAsync(int id)
+        public ActionResult CreatePhone(int id)
         {
 
             Phone phone = new Phone() { CalleeId = id };
             //var callee = db.Callees.Where(c => c.CalleeId == id).Single();
+            //DialAsync(phone);
 
             return View(phone);
         }
@@ -166,6 +167,7 @@ namespace Fundraising_Capstone2.Controllers
         [HttpPost]
         public async System.Threading.Tasks.Task<ActionResult> DialAsync(Phone phone)
         {
+            System.Console.WriteLine("CALLEE ID: "+ phone.CalleeId);
             Callee callee = db.Callees.Where(c => c.CalleeId == phone.CalleeId).Single();
             TwilioWrapperClient test = new TwilioWrapperClient(APIKeys.sID, APIKeys.AuthToken);
             await test.CallAsync("+14143107982", callee.phoneNumber, "Goodbye");

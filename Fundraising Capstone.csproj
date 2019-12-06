@@ -381,6 +381,14 @@
     <Compile Include="Migrations\201909231344582_ChangedPhoneNumber.Designer.cs">
       <DependentUpon>201909231344582_ChangedPhoneNumber.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912060014126_phoneCallee.cs" />
+    <Compile Include="Migrations\201912060014126_phoneCallee.Designer.cs">
+      <DependentUpon>201912060014126_phoneCallee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912060020057_removedChange.cs" />
+    <Compile Include="Migrations\201912060020057_removedChange.Designer.cs">
+      <DependentUpon>201912060020057_removedChange.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Callee.cs" />
@@ -429,6 +437,8 @@
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -615,6 +625,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909231344582_ChangedPhoneNumber.resx">
       <DependentUpon>201909231344582_ChangedPhoneNumber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912060014126_phoneCallee.resx">
+      <DependentUpon>201912060014126_phoneCallee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912060020057_removedChange.resx">
+      <DependentUpon>201912060020057_removedChange.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -4,6 +4,23 @@
     ViewBag.Title = "Callees";
 }
 
+<!-- script src="~/Scripts/MicrosoftAjax.js"></!--script>
+<script src="~/Scripts/MicrosoftMvcAjax.js"></script -->
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+
+<script>
+    function dialNumber(calleeID) {
+        $.ajax({
+            url: "/Phones/DialAsync",
+            type: "POST",
+            data: "{CalleeId:"+calleeID+"}",
+            contentType:"application/json",
+            success: function (result) { alert(result); },
+            error: function (result) { alert(result); }
+        });
+    }
+</script>
+
 <h2> Callees </h2>
 <body>
     <h2>Index</h2>
@@ -147,7 +164,8 @@
                     @Html.ActionLink("Create New", "Create")
                 <td>
                     @Html.ActionLink("Text", "SendTextAsync", new { id = item.CalleeId })
-                    @Html.ActionLink("Dial", "DialAsync", new { id = item.CalleeId })
+                    <a onclick="dialNumber(@Html.DisplayFor(modelItem => item.CalleeId));">Dial Number for realz</a>
+                    @Ajax.ActionLink("Dial", "DialAsync", new {CalleeId = item.CalleeId }, new AjaxOptions { HttpMethod = "POST",OnFailure="alert('fail');",OnSuccess="alert('success');"})
                     @Html.ActionLink("Edit", "Edit", new { id = item.CalleeId }) 
                     @Html.ActionLink("Details", "Details", new { id = item.CalleeId }) 
                     @Html.ActionLink("Delete", "Delete", new { id = item.CalleeId })
