@@ -661,6 +661,8 @@
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
     <Content Include="Scripts\script-custom-graphs.js" />
+    <Content Include="Scripts\src\index.js" />
+    <Content Include="Scripts\src\React\components\login.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
@@ -674,7 +676,8 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Scripts\React\package.json" />
+    <Content Include="Scripts\src\React\package.json" />
+    <Content Include="Scripts\webpack.config.js" />
     <None Include="Scripts\_References.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
