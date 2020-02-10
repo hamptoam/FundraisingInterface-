@@ -463,7 +463,6 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <None Include="Scripts\_References.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Scripts\quickstart.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
