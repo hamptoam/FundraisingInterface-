@@ -1,15 +1,15 @@
 ﻿@using Fundraising_Capstone2.Models
 @model LoginViewModel
 @{
-    ViewBag.Title = "Log in";
-}
-
-@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-    <body>
-        <center>
-            <div class="container">
+    <head>
+        <link rel="stylesheet" type="text/css" href="Login.css"
+    </head>
+<body>
+    <center>
+        <div class="square-box">
+            <div class="jumbotron">
                 <div class="d-flex justify-content-center h-100">
                     <div class="card">
                         <div class="card-header">
@@ -49,8 +49,11 @@
                     </div>
                 </div>
             </div>
-        </center>
-    </body>
+        </div>
+       
+    </center>
+
+</body>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
