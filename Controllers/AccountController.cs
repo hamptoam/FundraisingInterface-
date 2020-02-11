@@ -171,7 +171,7 @@ namespace Fundraising_Capstone2.Controllers
 
                     if (model.UserRoles == "Employee")
                     {
-                        return RedirectToAction("Index", "Phones");
+                        return RedirectToAction("Index", "Employees");
                     }
                     else if (model.UserRoles == "Manager")
                     {
@@ -407,8 +407,9 @@ namespace Fundraising_Capstone2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
-            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie, DefaultAuthenticationTypes.ExternalCookie);
+            Session.Abandon();
+            return RedirectToAction("Login", "Account");
         }
 
         //
