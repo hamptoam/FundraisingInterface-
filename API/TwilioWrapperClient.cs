@@ -1,18 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using System.Net;
-using System.Text;
 using Twilio;
 using Twilio.Rest.Api.V2010.Account;
 using Twilio.Types;
-using Fundraising_Capstone2.Keys;
-using Twilio.TwiML;
-using Twilio.AspNet.Mvc;
-using Twilio.TwiML.Voice;
-using System.Web.Services.Description;
+using Fundraising_Capstone2.API.Keys;
+
 
 namespace Fundraising_Capstone2.API
 {
@@ -125,7 +118,7 @@ namespace Fundraising_Capstone2.API
 
         public class TextResponse : IResponse
         {
-            public static string V = APIKeys.sID;
+            //public static string V = APIKeys.sID;
             public bool CanUpdate { get { return true; } }
 
             public bool hasResponse { get; set; }
@@ -145,9 +138,9 @@ namespace Fundraising_Capstone2.API
 
             public async System.Threading.Tasks.Task UpdateAsync()
             {
-                var call = await MessageResource.FetchAsync(APIKeys.sID);
+                //var call = await MessageResource.FetchAsync(APIKeys.sID);
 
-                SetMessage(call);
+            //    SetMessage(call);
             }
         }
     }

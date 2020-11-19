@@ -1,5 +1,4 @@
-﻿using Fundraising_Capstone2.Keys;
-using Stripe;
+﻿using Stripe;
 using System;
 using System.Collections.Generic;
 using System.Linq;
